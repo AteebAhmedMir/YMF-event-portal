@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-blue: #002B9A;
+  --secondary-blue: #0A0D3C;
+  --accent-blue: #3C82F6;
+  --light-blue: #EBF2FF;
+  --cyan-accent: #00D1FF;
+  --text-dark: #111827;
+  --text-gray: #4B5563;
+  --bg-white: #FFFFFF;
+  --bg-off-white: #F9FAFB;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
