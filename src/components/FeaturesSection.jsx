@@ -1,81 +1,44 @@
-import { motion } from 'framer-motion';
-import { Bot, Zap, Network, Lightbulb } from 'lucide-react';
-
 const FeaturesSection = () => {
-    const features = [
-        {
-            icon: <Bot size={32} />,
-            title: "AI Agent Fundamentals",
-            description: "Learn the core concepts of autonomous agents and how they reason and act in complex environments.",
-            color: "blue"
-        },
-        {
-            icon: <Zap size={32} />,
-            title: "No-Code Automation",
-            description: "Build powerful workflows without writing a single line of code using modern automation platforms.",
-            color: "cyan"
-        },
-        {
-            icon: <Network size={32} />,
-            title: "Building Agentic Workflows",
-            description: "Design multi-agent systems that communicate and collaborate to solve high-level business problems.",
-            color: "indigo"
-        },
-        {
-            icon: <Lightbulb size={32} />,
-            title: "Advanced AI Strategy",
-            description: "Develop a roadmap for implementing AI automation in any organization for maximum ROI.",
-            color: "sky"
-        }
-    ];
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-    };
-
     return (
-        <section id="features" className="py-24 bg-white">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold text-primary-blue tracking-widest uppercase mb-3">Core Capabilities</h2>
-                    <h3 className="text-4xl font-extrabold text-secondary-blue">Features of Agentic AI</h3>
-                </div>
+        <section id="features" className="py-32 bg-[#F9FAFB] flex justify-center">
+            <div className="container mx-auto px-8 max-w-7xl">
+                <div className="flex flex-col md:flex-row gap-24 items-start justify-between">
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    {features.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            whileHover={{ y: -10 }}
-                            className="p-8 rounded-[24px] bg-bg-off-white border border-gray-100 hover:border-primary-blue/20 hover:shadow-xl hover:shadow-primary-blue/5 transition-all group"
-                        >
-                            <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-white shadow-sm text-primary-blue group-hover:bg-primary-blue group-hover:text-white transition-all`}>
-                                {feature.icon}
+                    {/* Left Column */}
+                    <div className="flex-1 max-w-2xl">
+                        <h2 className="text-[48px] font-black text-secondary-blue leading-[1.1] mb-16 pt-20">
+                            The manual work<br />trap.
+                        </h2>
+                        <p className="text-xl text-text-gray/80 leading-relaxed font-medium">
+                            Professional workloads are often bogged down by repetitive tasks that are mundane and time-consuming. This bootcamp helps you break free through practical AI systems.                        </p>
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex-1 w-full max-w-3xl relative">
+                        {/* Decorative Line connection mimicking design */}
+                        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden md:block opacity-50 -ml-24"></div>
+
+                        <div className="space-y-16">
+                            {/* Point 1 */}
+                            <div className="relative pb-10 border-b border-gray-200">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Solve Complex Inefficiency</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md"> Move past minor task automations and build full end-to-end intelligent agent workflows.</p>
                             </div>
-                            <h4 className="text-xl font-bold text-secondary-blue mb-4">{feature.title}</h4>
-                            <p className="text-text-gray text-sm leading-relaxed">
-                                {feature.description}
-                            </p>
-                        </motion.div>
-                    ))}
-                </motion.div>
+
+                            {/* Point 2 */}
+                            <div className="relative pb-10 border-b border-gray-200">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Boost Domain Impact</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Leverage industry specific data to align AI output directly to high-value outcomes.</p>
+                            </div>
+
+                            {/* Point 3 */}
+                            <div className="relative pb-10 border-gray-200">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Practical Business Logic</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Focus on implementation over theory. Connect agents, APIs, and databases seamlessly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

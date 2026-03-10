@@ -1,69 +1,100 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Cpu, Sparkles } from 'lucide-react';
 
 const CTASection = () => {
     return (
-        <section className="py-20">
-            <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="relative overflow-hidden bg-primary-blue rounded-[40px] p-12 lg:p-20 text-white"
-                >
-                    {/* Background Decorative elements */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
-                        <svg width="100%" height="100%" viewBox="0 0 400 400">
-                            <circle cx="200" cy="200" r="150" fill="none" stroke="white" strokeWidth="1" strokeDasharray="10 10" />
-                            <circle cx="200" cy="200" r="100" fill="none" stroke="white" strokeWidth="2" />
-                            <path d="M200 50 L200 350 M50 200 L350 200" stroke="white" strokeWidth="1" />
-                            <rect x="180" y="180" width="40" height="40" fill="white" />
-                        </svg>
-                    </div>
+        <section className="py-32 bg-primary-blue text-white relative rounded-tl-[100px] rounded-tr-[100px] overflow-hidden w-full">
+            {/* Decorative radial gradient similar to the design */}
+            <div className="absolute top-1/2 -right-48 -translate-y-1/2 w-[900px] h-[900px] bg-[#3ABBA6]/10 rounded-full blur-[120px]"></div>
 
-                    <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-                        <div className="lg:w-2/3">
-                            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6">
-                                <Sparkles size={16} className="text-cyan-accent" />
-                                <span className="text-xs font-bold tracking-wider uppercase">Limited Availability</span>
+            <div className="container mx-auto max-w-[1440px] px-8 lg:px-20 relative z-10">
+                <div className="flex flex-col lg:flex-row gap-32 lg:gap-48 w-full">
+                    {/* Left Side: Content & Grid */}
+                    <div className="flex-1 max-w-3xl">
+                        <h2 className="text-5xl lg:text-[56px] font-black leading-[1.1] mb-12 tracking-tight">
+                            Agentic<br />Automation.
+                        </h2>
+                        <p className="text-xl text-white/80 leading-relaxed font-medium mb-20">
+                            Agentic AI is the next generation of automation. It goes beyond simple AI scripts by creating AI agents that reason, use tools, and execute workflows autonomously.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-20">
+                            {/* 01 */}
+                            <div>
+                                <div className="text-[#3ABBA6] font-black text-3xl mb-4">01</div>
+                                <h4 className="font-bold text-xl mb-3 uppercase tracking-widest">Autonomy</h4>
+                                <p className="text-[16px] text-white/70 leading-relaxed font-medium">Agents continuously monitor systems for events that trigger workflows.</p>
                             </div>
-                            <h2 className="text-4xl lg:text-5xl font-extrabold leading-tight mb-6">
-                                Unlock the Power of <br />
-                                <span className="text-cyan-accent">Agentic Automation.</span>
-                            </h2>
-                            <p className="text-lg text-blue-100 mb-8 max-w-xl">
-                                Integrate autonomous agents into your business processes, and help your events processes. This is the last chance to join the current cohort.
-                            </p>
-                            <button className="bg-white text-primary-blue px-10 py-5 rounded-full font-bold shadow-2xl hover:bg-cyan-accent hover:text-primary-blue transition-all flex items-center gap-2 text-lg">
-                                GET STARTED NOW <ArrowRight size={22} />
-                            </button>
+                            {/* 02 */}
+                            <div>
+                                <div className="text-[#3ABBA6] font-black text-3xl mb-4">02</div>
+                                <h4 className="font-bold text-xl mb-3 uppercase tracking-widest">Reasoning</h4>
+                                <p className="text-[16px] text-white/70 leading-relaxed font-medium">Agents formulate internal execution plans to break complex tasks into actionable steps.</p>
+                            </div>
+                            {/* 03 */}
+                            <div>
+                                <div className="text-[#3ABBA6] font-black text-3xl mb-4">03</div>
+                                <h4 className="font-bold text-xl mb-3 uppercase tracking-widest">Tool Integration</h4>
+                                <p className="text-[16px] text-white/70 leading-relaxed font-medium">Agents call external APIs to interact with tools like email or databases.</p>
+                            </div>
+                            {/* 04 */}
+                            <div>
+                                <div className="text-[#3ABBA6] font-black text-3xl mb-4">04</div>
+                                <h4 className="font-bold text-xl mb-3 uppercase tracking-widest">No-Code Building</h4>
+                                <p className="text-[16px] text-white/70 leading-relaxed font-medium">Build automated workflows visually without typing a single line of code.</p>
+                            </div>
                         </div>
-
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="hidden lg:block lg:w-1/3"
-                        >
-                            <div className="w-64 h-64 border-2 border-white/20 rounded-full flex items-center justify-center relative">
-                                <div className="w-48 h-48 border-4 border-cyan-accent/30 rounded-full flex items-center justify-center">
-                                    <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center text-primary-blue shadow-2xl">
-                                        <Cpu size={64} />
-                                    </div>
-                                </div>
-                                {/* Dots around circle */}
-                                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-                                    <div
-                                        key={angle}
-                                        className="absolute w-4 h-4 bg-cyan-accent rounded-full border-4 border-primary-blue"
-                                        style={{
-                                            transform: `rotate(${angle}deg) translateY(-128px)`
-                                        }}
-                                    />
-                                ))}
-                            </div>
-                        </motion.div>
                     </div>
-                </motion.div>
+
+                    {/* Right Side: Graph / Nodes Concept */}
+                    <div className="flex-1 relative flex items-center justify-center min-h-[500px]">
+                        {/* Simulating the connected nodes shown in Figma */}
+                        <div className="relative w-full h-[500px] border border-white/10 rounded-full flex items-center justify-center">
+
+                            {/* Connectors */}
+                            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500">
+                                <path d="M 150 180 Q 250 250 350 180" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="5 5" />
+                                <path d="M 150 320 Q 250 250 350 320" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="5 5" />
+                            </svg>
+
+                            {/* Node 1: Autonomy */}
+                            <div className="absolute top-[25%] left-[5%] bg-[#0A1D5C] border border-[#213781] px-8 py-4 rounded-full flex flex-col items-center shadow-2xl">
+                                <div className="w-6 h-6 mb-2 flex items-center justify-center text-[#3ABBA6]">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" /></svg>
+                                </div>
+                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#93A5E5]">Autonomy</span>
+                            </div>
+
+                            {/* Node 2: Tool Integration */}
+                            <div className="absolute top-[25%] right-[5%] bg-[#0A1D5C] border border-[#213781] px-8 py-4 rounded-full flex flex-col items-center shadow-2xl">
+                                <div className="w-6 h-6 mb-2 flex items-center justify-center text-[#3ABBA6]">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+                                </div>
+                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#93A5E5]">Tool Integration</span>
+                            </div>
+
+                            {/* Node 3: Reasoning */}
+                            <div className="absolute bottom-[25%] left-[5%] bg-[#0A1D5C] border border-[#213781] px-8 py-4 rounded-full flex flex-col items-center shadow-2xl">
+                                <div className="w-6 h-6 mb-2 flex items-center justify-center text-[#3ABBA6]">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><circle cx="12" cy="12" r="4" /></svg>
+                                </div>
+                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#93A5E5]">Reasoning</span>
+                            </div>
+
+                            {/* Node 4: No-Code Building */}
+                            <div className="absolute bottom-[25%] right-[5%] bg-[#0A1D5C] border border-[#213781] px-8 py-4 rounded-full flex flex-col items-center justify-center shadow-2xl">
+                                <div className="w-6 h-6 mb-2 flex items-center justify-center text-[#3ABBA6]">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
+                                </div>
+                                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#93A5E5]">No-Code Building</span>
+                            </div>
+
+                            {/* Center glow */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-primary-blue rounded-full border border-[#213781] shadow-[0_0_60px_rgba(0,43,154,0.8)] z-10 flex items-center justify-center">
+                                <div className="w-20 h-20 bg-[#3ABBA6]/20 rounded-full blur-lg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

@@ -3,19 +3,18 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
-// Dummy Firebase configuration - To be replaced by USER
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSy_DUMMY_KEY_FOR_TEMPORARY_USE_12345",
-    authDomain: "autoagents-landing.firebaseapp.com",
-    projectId: "autoagents-landing",
-    storageBucket: "autoagents-landing.appspot.com",
-    messagingSenderId: "1234567890",
-    appId: "1:1234567890:web:abcdef1234567890",
-    measurementId: "G-DUMMYID"
+    apiKey: "AIzaSyCvQvCWoWz8f0orTOLniGz661iKFf3tOwg",
+    authDomain: "ymforum-event-portal.firebaseapp.com",
+    projectId: "ymforum-event-portal",
+    storageBucket: "ymforum-event-portal.firebasestorage.app",
+    messagingSenderId: "380392431674",
+    appId: "1:380392431674:web:7193b21863e174e6f5d503",
+    measurementId: "G-KDQ9BT4TJ1"
 };
 
-// Initialize Firebase (Temporarily disabled to prevent invalid API key errors)
-/*
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -24,11 +23,5 @@ let analytics;
 if (typeof window !== 'undefined') {
     analytics = getAnalytics(app);
 }
-*/
-
-// Export stubs so the app runs without network calls
-const db = null;
-const auth = null;
-const analytics = null;
 
 export { db, auth, analytics };

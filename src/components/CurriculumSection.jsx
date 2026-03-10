@@ -1,102 +1,50 @@
-import { motion } from 'framer-motion';
-import { BookOpen, CheckCircle2 } from 'lucide-react';
-
 const CurriculumSection = () => {
-    const modules = [
-        {
-            id: "01",
-            title: "Module 1: Intro to Agentic AI",
-            items: [
-                "Intelligence Intro to Agentic AI",
-                "Explain about Agentic AI",
-                "Integrated Intro into Agentic AI",
-                "Consolidate common workflows",
-                "Customize small integration",
-                "Condition Agentic AI"
-            ]
-        },
-        {
-            id: "02",
-            title: "Module 2: Designing Workflows",
-            items: [
-                "Integrate automated workflows",
-                "Developing designing workflows",
-                "Designing optimization and serialization",
-                "Deploying a tool integrating agentic console"
-            ]
-        },
-        {
-            id: "03",
-            title: "Module 3: Tool Integration",
-            items: [
-                "Developing custom-designed workflows",
-                "Designing automation and workflows",
-                "Leveraging tool integration and automation",
-                "Deployment & optimization"
-            ]
-        },
-        {
-            id: "04",
-            title: "Module 4: Deployment & Optimization",
-            items: [
-                "Deploying agents and business processes",
-                "Deployment to Optimization",
-                "Deployment Section Optimization",
-                "Deployment Power Optimization"
-            ]
-        }
-    ];
-
     return (
-        <section id="curriculum" className="py-24 bg-bg-off-white">
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div className="md:w-1/2">
-                        <h2 className="text-sm font-bold text-primary-blue tracking-widest uppercase mb-3">Roadmap</h2>
-                        <h3 className="text-4xl font-extrabold text-secondary-blue mb-4">Curriculum</h3>
-                        <p className="text-text-gray">
-                            Our comprehensive curriculum is designed to take you from a beginner to an expert in building autonomous agent systems.
-                        </p>
+        <section id="curriculum" className="py-32 bg-[#F9FAFB] flex flex-col items-center px-8">
+            <div className="container mx-auto max-w-7xl">
+                <div className="flex flex-col md:flex-row gap-24 items-start justify-between">
+
+                    {/* Left Column */}
+                    <div className="flex-1 max-w-2xl">
+                        <h2 className="text-[48px] font-black text-secondary-blue leading-[1.1] mb-10 pt-48">
+                            Curriculum
+                        </h2>
+                        <p className="text-xl text-text-gray/80 leading-relaxed font-medium">
+                            Designed to take you from foundations to building high-ROI systems, with a dedicated track on how to sell these services.                        </p>
                     </div>
-                    <button className="bg-primary-blue text-white px-8 py-3 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center gap-2">
-                        Download Syllabus <BookOpen size={20} />
-                    </button>
+
+                    {/* Right Column (List) */}
+                    <div className="flex-1 w-full max-w-3xl relative pb-16">
+                        {/* Decorative Line connection mimicking design */}
+                        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden md:block opacity-50 -ml-24"></div>
+
+                        <div className="space-y-16">
+                            {/* Week 1 */}
+                            <div className="relative pb-10 border-b border-gray-200">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5 uppercase tracking-widest">Foundations & System Design (Week 1)</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Understand the landscape of Agentic AI. Architect your first automated micro service.</p>
+                            </div>
+
+                            {/* Week 2 */}
+                            <div className="relative pb-10 border-b border-gray-200">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5 uppercase tracking-widest">No-Code Building & Multi-Agent Flows (Week 2)</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Deep dive into n8n and Make. Create complex multi-agent flows with custom tools.</p>
+                            </div>
+
+                            {/* Weeks 3-4 */}
+                            <div className="relative pb-8">
+                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5 uppercase tracking-widest">Governance & Professional Positioning (Weeks 3-4)</h4>
+                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Deploy agents securely. Learn how to sell these high value automated services.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                    {/* Central Line Visual */}
-                    <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-0.5 bg-blue-100 -translate-x-1/2 pointer-events-none"></div>
-
-                    {modules.map((module, index) => (
-                        <motion.div
-                            key={module.id}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className={`p-8 rounded-[32px] bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all relative z-10 ${index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'}`}
-                        >
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-light-blue flex items-center justify-center text-primary-blue font-bold text-xl flex-shrink-0">
-                                    {module.id}
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="text-xl font-bold text-secondary-blue mb-6 border-b border-gray-50 pb-4">
-                                        {module.title}
-                                    </h4>
-                                    <ul className="space-y-4">
-                                        {module.items.map((item, i) => (
-                                            <li key={i} className="flex items-start gap-3 group">
-                                                <CheckCircle2 size={18} className="text-cyan-accent mt-0.5 flex-shrink-0" />
-                                                <span className="text-text-gray text-sm font-medium group-hover:text-primary-blue transition-colors">
-                                                    {item}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                {/* Register Now Button centered below */}
+                <div className="mt-20 flex justify-center">
+                    <button className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-24 rounded-xl text-4xl transition-all shadow-[0_15px_35px_rgba(0,43,154,0.3)] hover:shadow-[0_18px_40px_rgba(0,43,154,0.4)] active:scale-95">
+                        Register Now
+                    </button>
                 </div>
             </div>
         </section>

@@ -1,149 +1,115 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Users, Star, CheckCircle } from 'lucide-react';
+import { Play, Check } from 'lucide-react';
 
 const HeroSection = () => {
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-light-blue/50 to-white">
-            {/* Background patterns can be added here */}
-            <div className="container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                    {/* Content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="lg:w-1/2"
-                    >
-                        <div className="inline-flex items-center gap-2 bg-white border border-blue-100 rounded-full px-4 py-1.5 mb-6 shadow-sm">
-                            <span className="flex h-2 w-2 rounded-full bg-primary-blue"></span>
-                            <span className="text-xs font-bold text-primary-blue tracking-wider uppercase">AI Automation Course</span>
+        <section className="bg-white relative overflow-hidden flex flex-col items-center w-full">
+            {/* Top Banner indicating enrollment open */}
+            <div className="w-full bg-[#E5E7EB] text-center py-4 text-[13px] font-bold tracking-[0.2em] uppercase text-gray-500">
+                Young Minds Forum x ThinkYard: Enrollment open for Batch 01
+            </div>
+
+            <div className="container mx-auto px-10 max-w-[1440px] relative z-10 pt-10 pb-10">
+                <div className="flex flex-col lg:flex-row items-center gap-24 justify-between">
+
+                    {/* Left Column */}
+                    <div className="flex-1 text-left w-full lg:max-w-[840px]">
+                        {/* Logo */}
+                        <div className="flex items-center mb-2">
+                            <img src="/logo-light.jpg" alt="Young Minds Forum" className="h-20 w-auto mix-blend-multiply" />
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-secondary-blue mb-6">
-                            Master Automation with <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-cyan-accent">
-                                Agentic AI.
-                            </span>
+                        <h1 className="text-7xl lg:text-[80px] font-black text-secondary-blue leading-[0.9] tracking-tight mb-12">
+                            Business <br />
+                            Automation with <br />
+                            <span className="text-[#3ABBA6]">Agentic AI.</span>
                         </h1>
 
-                        <p className="text-lg text-text-gray mb-8 max-w-xl">
-                            Integrate autonomous agents into your business processes and create powerful AI models that work for you 24/7. Join the future of workflow efficiency.
+                        <p className="text-xl text-text-gray mb-16 max-w-2xl leading-relaxed font-medium">
+                            This 4-week hybrid program explores the revolutionary world of AI Agents. You will learn to design, deploy, and supervise agents that plan and execute complex business tasks independently.
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-4 mb-10">
-                            <button className="bg-primary-blue text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-primary-blue/30 transform hover:-translate-y-1 transition-all flex items-center gap-2">
-                                ENROLL NOW <ArrowRight size={20} />
+                        {/* Enroll Now & Checklist */}
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-16 mb-12">
+                            <button className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-16 rounded-full text-xl shadow-[0_15px_35px_rgba(0,43,154,0.3)] transition-all active:scale-95">
+                                Enroll Now
                             </button>
-                            <button className="bg-white text-secondary-blue border border-gray-200 px-8 py-4 rounded-full font-bold hover:bg-gray-50 flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-light-blue flex items-center justify-center text-primary-blue">
-                                    <Play size={16} fill="currentColor" />
-                                </div>
-                                See Demo
-                            </button>
-                        </div>
 
-                        <div className="flex items-center gap-8">
-                            <div className="flex -space-x-3">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-blue-200 flex items-center justify-center text-[10px] font-bold`}>
-                                        U{i}
+                            <div className="flex flex-col gap-4 pt-3 text-base text-text-gray font-medium">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-5 h-5 rounded-full bg-blue-50 flex flex-shrink-0 items-center justify-center text-primary-blue">
+                                        <Check size={12} strokeWidth={3} />
                                     </div>
-                                ))}
-                            </div>
-                            <div>
-                                <div className="flex items-center gap-1 text-yellow-400">
-                                    <Star size={14} fill="currentColor" />
-                                    <Star size={14} fill="currentColor" />
-                                    <Star size={14} fill="currentColor" />
-                                    <Star size={14} fill="currentColor" />
-                                    <Star size={14} fill="currentColor" />
+                                    No previous coding experience needed
                                 </div>
-                                <p className="text-sm font-semibold text-secondary-blue">1200+ Students enrolled</p>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Device Mockup */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 50 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:w-1/2 relative"
-                    >
-                        <div className="relative z-10 bg-secondary-blue rounded-[32px] p-4 shadow-2xl border border-white/10 overflow-hidden">
-                            {/* Fake UI mockup with SVGs */}
-                            <div className="bg-[#050720] rounded-[24px] aspect-[1.4/1] w-full overflow-hidden p-6 text-white/90">
-                                <div className="flex justify-between items-center mb-6">
-                                    <div className="flex gap-4">
-                                        <div className="w-32 h-3 bg-white/10 rounded-full"></div>
-                                        <div className="w-16 h-3 bg-white/5 rounded-full"></div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-5 h-5 rounded-full bg-blue-50 flex flex-shrink-0 items-center justify-center text-primary-blue">
+                                        <Check size={12} strokeWidth={3} />
                                     </div>
-                                    <div className="w-8 h-8 rounded-full bg-white/10"></div>
-                                </div>
-
-                                <div className="grid grid-cols-3 gap-4 mb-8">
-                                    {[1, 2, 3].map((i) => (
-                                        <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/5">
-                                            <div className="w-8 h-8 bg-primary-blue/30 rounded-lg mb-3"></div>
-                                            <div className="w-full h-2 bg-white/20 rounded-full mb-2"></div>
-                                            <div className="w-2/3 h-2 bg-white/10 rounded-full"></div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative overflow-hidden">
-                                    <div className="flex justify-between items-end mb-4">
-                                        <div className="space-y-2">
-                                            <div className="w-40 h-4 bg-white/20 rounded-full"></div>
-                                            <div className="w-20 h-3 bg-white/10 rounded-full"></div>
-                                        </div>
-                                        <div className="text-right">
-                                            <div className="text-2xl font-bold text-cyan-accent">+84%</div>
-                                            <div className="text-[10px] text-white/40">Efficiency Growth</div>
-                                        </div>
-                                    </div>
-                                    {/* Fake Chart */}
-                                    <svg className="w-full h-24" preserveAspectRatio="none">
-                                        <path
-                                            d="M0 80 Q 50 20, 100 60 T 200 10 T 300 50 T 400 30 T 500 70 L 500 100 L 0 100 Z"
-                                            fill="url(#grad)"
-                                            opacity="0.3"
-                                        />
-                                        <path
-                                            d="M0 80 Q 50 20, 100 60 T 200 10 T 300 50 T 400 30 T 500 70"
-                                            fill="none"
-                                            stroke="#00D1FF"
-                                            strokeWidth="3"
-                                        />
-                                        <defs>
-                                            <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" stopColor="#00D1FF" />
-                                                <stop offset="100%" stopColor="#00D1FF" stopOpacity="0" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                                    Build your own AI agents
                                 </div>
                             </div>
                         </div>
 
-                        {/* Float elements */}
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="absolute -top-6 -right-6 z-20 bg-white p-4 rounded-2xl shadow-xl border border-blue-50"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                    <CheckCircle size={20} />
-                                </div>
-                                <div>
-                                    <p className="text-[10px] uppercase font-bold text-gray-400 leading-none">Status</p>
-                                    <p className="text-xs font-bold text-secondary-blue">Agents Active</p>
+                        {/* Collaboration */}
+                        <div className="text-sm text-text-gray font-bold flex flex-col mb-20 uppercase tracking-[0.1em]">
+                            <span className="text-gray-400 mb-2 ml-2">In Collaboration with</span>
+                            <span className="flex items-baseline gap-px lowercase ml-2">
+                                <span className="text-[#3ABBA6] text-4xl font-black leading-none capitalize">Think</span>
+                                <span className="text-secondary-blue text-4xl font-black leading-none capitalize">Yard.</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Hero Graphic */}
+                    <div className="flex-1 w-full max-w-lg lg:max-w-[560px] relative">
+                        {/* Blue glow effect behind the image */}
+                        <div className="absolute -top-16 -right-16 w-96 h-96 bg-[#002B9A]/30 blur-[140px] rounded-full"></div>
+
+                        {/* Representation of the dark video/graph player in design */}
+                        <div className="w-full aspect-[4/5] bg-[#0A0D14] rounded-[50px] overflow-hidden relative shadow-2xl z-10 flex flex-col border border-white/5">
+                            {/* Network Graph Graphic representation */}
+                            <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 opacity-80">
+                                {/* Abstract graph lines */}
+                                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <path d="M10,80 Q30,40 50,60 T90,20" stroke="#00D1FF" strokeWidth="0.5" fill="none" opacity="0.6" className="drop-shadow-[0_0_8px_rgba(0,209,255,0.8)]" />
+                                    <circle cx="10" cy="80" r="2" fill="#00D1FF" opacity="0.8" />
+                                    <circle cx="50" cy="60" r="2.5" fill="#00D1FF" opacity="0.9" />
+                                    <circle cx="90" cy="20" r="2" fill="#00D1FF" opacity="0.8" />
+                                    <path d="M20,90 Q40,50 60,70 T100,30" stroke="#3ABBA6" strokeWidth="0.5" fill="none" opacity="0.4" />
+                                    <circle cx="20" cy="90" r="2.5" fill="#3ABBA6" opacity="0.7" />
+                                    <circle cx="60" cy="70" r="2" fill="#3ABBA6" opacity="0.6" />
+                                    <circle cx="100" cy="30" r="2.5" fill="#3ABBA6" opacity="0.7" />
+                                </svg>
+                            </div>
+                            {/* Bottom Controller Bar */}
+                            <div className="p-12 pt-0 flex justify-between items-center text-white shrink-0 relative z-20">
+                                <div className="text-xl font-bold tracking-[0.1em] text-white/90">Master the Future</div>
+                                <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center">
+                                    <Play size={16} fill="currentColor" className="ml-0.5 text-white/90" />
                                 </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
+
                 </div>
+
+                {/* Integration Logos Section below hero */}
+                <div className="mt-48 space-y-12 flex flex-col items-center border-t border-gray-100/0">
+                    <p className="text-[13px] font-bold text-gray-600 uppercase tracking-[0.3em] text-center">Powering Workflows With</p>
+                    <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-12 text-base font-bold text-gray-400">
+                        {/* Conceptual Logos built via Text for precise layout */}
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-sm"></div>n8n</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-full"></div>ChatGPT</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-full"></div>Make</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-sm"></div>Python</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-sm"></div>Javascript</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-sm"></div>Upwork</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-full"></div>Google Workspace 365</div>
+                        <div className="flex items-center gap-3"><div className="w-5 h-5  text-gray-600 bg-gray-600 rounded-sm shadow-sm"></div>Microsoft 365</div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );
