@@ -1,102 +1,88 @@
-import { Cpu, Mail, Phone, MapPin, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { MessageCircle, Globe, AtSign, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary-blue text-white py-20">
-            <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                    {/* Logo and Info */}
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-primary-blue rounded-lg flex items-center justify-center">
-                                <Cpu size={24} />
-                            </div>
-                            <span className="text-xl font-bold tracking-tight">AUTOAGENTS</span>
+        <footer className="bg-secondary-blue pt-20 lg:pt-32 pb-12 px-6 lg:px-12 relative overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-blue/10 blur-[150px] rounded-full translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+            <div className="container mx-auto max-w-7xl relative z-10">
+                <div className="flex flex-col lg:flex-row justify-between gap-16 lg:gap-32 items-start mb-24 lg:mb-40">
+                    {/* Brand Info */}
+                    <div className="flex-1 max-w-xl">
+                        <div className="flex items-center gap-4 lg:mb-20">
+                            <img 
+                                src={`${import.meta.env.BASE_URL}logo-dark.png`}    
+                                alt="Young Minds Forum" 
+                                className="h-24 lg:h-36 w-auto" 
+                            />
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                            Empowering businesses and individuals through the magic of Agentic AI and seamless automation.
+
+                        <p className="text-xl lg:text-2xl font-black text-white/30 leading-tight mb-16 tracking-tight uppercase italic">
+                            Building the next generation of<br />
+                            <span className="text-white">AI decision-makers.</span>
                         </p>
-                        <div className="flex gap-4">
-                            {[Github, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary-blue transition-all">
-                                    <Icon size={18} />
-                                </a>
-                            ))}
+
+                        <div className="space-y-8">
+                            <div className="text-white/40 font-black text-[10px] uppercase tracking-[0.3em]">Inquiries</div>
+                            <div className="flex flex-wrap gap-8">
+                                <FooterAction icon={<MessageCircle size={18} />} label="WhatsApp" href="#" target="_blank"/>
+                                <FooterAction icon={<AtSign size={18} />} label="Email Us" href="mailto:info@ymforum.org" target="_blank"/>
+                                <FooterAction icon={<Globe size={18} />} label="Website" href="#" target="_blank"/>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-                        <ul className="space-y-4">
-                            {['Home', 'Features', 'Curriculum', 'Pricing', 'About Us', 'Contact'].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">{link}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Support */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-6">Support</h4>
-                        <ul className="space-y-4">
-                            {['Help Center', 'Documentation', 'Community', 'Security', 'Privacy Policy'].map((link) => (
-                                <li key={link}>
-                                    <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">{link}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Contact Info */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-6">Contact Us</h4>
-                        <ul className="space-y-6">
-                            <li className="flex gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 text-cyan-accent">
-                                    <Mail size={18} />
-                                </div>
-                                <div>
-                                    <p className="text-xs text-gray-500 uppercase font-bold mb-1">Email</p>
-                                    <p className="text-sm font-medium">contact@autoagents.ai</p>
-                                </div>
-                            </li>
-                            <li className="flex gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 text-cyan-accent">
-                                    <Phone size={18} />
-                                </div>
-                                <div>
-                                    <p className="text-xs text-gray-500 uppercase font-bold mb-1">Phone</p>
-                                    <p className="text-sm font-medium">+92 300 1234567</p>
-                                </div>
-                            </li>
-                            <li className="flex gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 text-cyan-accent">
-                                    <MapPin size={18} />
-                                </div>
-                                <div>
-                                    <p className="text-xs text-gray-500 uppercase font-bold mb-1">Location</p>
-                                    <p className="text-sm font-medium">Remote / Islamabad, PK</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    {/* Newsletter - Glassmorphic */}
+                    <motion.div 
+                        whileHover={{ y: -5 }}
+                        className="flex-1 w-full max-w-lg glass-card rounded-[48px] p-10 lg:p-14 border-white/5 shadow-2xl relative group"
+                    >
+                        <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <ArrowRight className="text-teal-accent -rotate-45" size={32} />
+                        </div>
+                        
+                        <h4 className="text-2xl lg:text-3xl font-black text-white mb-12 tracking-tight leading-none italic text-center">
+                            Stay within the loop.
+                        </h4>
+                        
+                        <div className="w-full space-y-6">
+                            <input 
+                                type="email" placeholder="EMAIL ADDRESS *" 
+                                className="w-full bg-white/5 border border-white/10 py-4 px-8 rounded-full text-lg font-black text-white placeholder-white/10 outline-none focus:border-teal-accent transition-colors text-center"
+                            />
+                            <button className="w-full py-6 bg-white text-secondary-blue rounded-full text-lg font-black hover:bg-teal-accent transition-colors uppercase tracking-widest ring-4 ring-white/5">
+                                Join Now
+                            </button>
+                        </div>
+                    </motion.div>
                 </div>
 
-                <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-gray-500 text-sm">
-                        © 2026 AutoAgents. All rights reserved. Built with excellence.
+                {/* Bottom Bar */}
+                <div className="pt-12 border-t border-white/5 flex flex-col lg:flex-row justify-between items-center gap-8 opacity-40">
+                    <div className="text-xl font-black text-white tracking-widest uppercase">Agentic AI</div>
+                    <p className="text-[9px] font-black text-white uppercase tracking-[0.4em] text-center">
+                        © 2024 Automation With Agentic AI. Islamabad, Pakistan.
                     </p>
-                    <div className="flex gap-8 text-xs text-gray-500">
-                        <a href="#" className="hover:text-white">Terms of Service</a>
-                        <a href="#" className="hover:text-white">Privacy Policy</a>
-                        <a href="#" className="hover:text-white">Cookie Policy</a>
+                    <div className="flex gap-8">
+                         <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Legal</span>
+                         <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Privacy</span>
                     </div>
                 </div>
             </div>
         </footer>
     );
 };
+
+const FooterAction = ({ icon, label, href }) => (
+    <a href={href} className="group flex items-center gap-3 text-white hover:text-teal-accent transition-colors">
+        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-teal-accent transition-colors">
+            {icon}
+        </div>
+        <span className="text-[12px] font-black uppercase tracking-[0.15em]">{label}</span>
+    </a>
+);
 
 export default Footer;

@@ -1,124 +1,203 @@
 import { motion } from 'framer-motion';
-import { Play, Check } from 'lucide-react';
+import { Cpu, Calendar, Monitor, Clock, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
     return (
-        <section className="bg-white relative overflow-hidden flex flex-col items-center w-full">
-            {/* Top Banner indicating enrollment open */}
-            <div className="w-full bg-[#E5E7EB] text-center py-4 text-[13px] font-bold tracking-[0.2em] uppercase text-gray-500">
-                Young Minds Forum x ThinkYard: Enrollment open for Batch 01
+        <section className="relative w-full overflow-hidden bg-white mesh-gradient min-h-[90vh] flex flex-col justify-center">
+            {/* Immersive Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary-blue/5 blur-[100px] rounded-full"></div>
+                <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-teal-accent/5 blur-[100px] rounded-full"></div>
+                
+                {/* Floating "Agent" Orbs */}
+                <motion.div 
+                    animate={{ y: [0, -20, 0], x: [0, 15, 0] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/3 left-10 w-16 h-16 bg-gradient-to-br from-teal-accent/20 to-transparent blur-xl rounded-full"
+                ></motion.div>
+                <motion.div 
+                    animate={{ y: [0, 30, 0], x: [0, -15, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute bottom-1/3 right-20 w-24 h-24 bg-gradient-to-br from-primary-blue/10 to-transparent blur-xl rounded-full"
+                ></motion.div>
             </div>
 
-            <div className="container mx-auto px-6 lg:px-10 max-w-[1440px] relative z-10 pt-10 pb-10">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 justify-between">
+            {/* Announcement Bar */}
+            <div className="absolute top-0 w-full bg-secondary-blue/5 backdrop-blur-sm py-2 text-center px-4 z-20">
+                <p className="text-[10px] lg:text-[11px] font-black text-secondary-blue uppercase tracking-[0.3em]">
+                    Collaborating for impact: Young Minds Forum x ThinkYard
+                </p>
+            </div>
 
-                    {/* Left Column */}
-                    <div className="flex-1 text-left w-full lg:max-w-[840px]">
-                        {/* Logo */}
-                        <div className="flex items-center mb-2">
-                            <img src="/logo-light.jpg" alt="Young Minds Forum" className="h-20 w-auto mix-blend-multiply" />
-                        </div>
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-16 relative z-10">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    {/* Left Column: Content */}
+                    <div className="flex-1 text-center lg:text-left">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="flex items-center justify-center lg:justify-start mb-12"
+                        >
+                            <img 
+                                src={`${import.meta.env.BASE_URL}logo-light.png`} 
+                                alt="Young Minds Forum" 
+                                className="h-20 lg:h-32 w-auto" 
+                            />
+                        </motion.div>
 
-                        <h1 className="text-4xl sm:text-7xl lg:text-[80px] font-black text-secondary-blue leading-[1.1] sm:leading-[0.9] tracking-tight mb-8 sm:mb-12">
-                            Business <br className="hidden sm:block" />
-                            Automation with <br className="hidden sm:block" />
-                            <span className="text-[#3ABBA6]">Agentic AI.</span>
-                        </h1>
+                        <motion.h1 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-4xl lg:text-[72px] font-black text-secondary-blue leading-[1] mb-6 tracking-tight"
+                        >
+                            <span className="relative">
+                                Business
+                                <motion.span 
+                                    className="absolute -bottom-1 left-0 w-full h-1.5 bg-teal-accent/20 -z-10"
+                                    initial={{ width: 0 }}
+                                    animate={{ width: '100%' }}
+                                    transition={{ delay: 1, duration: 1 }}
+                                ></motion.span>
+                            </span><br />
+                            Automation with<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-accent to-primary-blue font-black">Agentic AI.</span>
+                        </motion.h1>
 
-                        <p className="text-lg sm:text-xl text-text-gray mb-10 sm:mb-16 max-w-2xl leading-relaxed font-medium">
-                            This 4-week hybrid program explores the revolutionary world of AI Agents. You will learn to design, deploy, and supervise agents that plan and execute complex business tasks independently.
-                        </p>
+                        <motion.p 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-base lg:text-xl text-text-gray/70 max-w-xl mx-auto lg:mx-0 mb-10 font-medium leading-relaxed"
+                        >
+                            Master the revolution. Build, deploy, and supervise autonomous agency systems 
+                            that transform professional tasks into efficient, high-ROI workflows.
+                        </motion.p>
 
-                        {/* Enroll Now & Checklist */}
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:gap-16 mb-12">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            className="flex flex-col sm:flex-row items-center gap-8 mb-16 justify-center lg:justify-start"
+                        >
                             <button 
                                 onClick={() => {
-                                    const element = document.getElementById('fullName');
-                                    if (element) {
-                                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                        element.focus();
-                                    }
+                                    const el = document.getElementById('fullName');
+                                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                 }}
-                                className="w-full sm:w-auto bg-primary-blue hover:bg-blue-800 text-white font-bold py-5 sm:py-6 px-10 sm:px-16 rounded-full text-lg sm:text-xl shadow-[0_15px_35px_rgba(0,43,154,0.3)] transition-all active:scale-95 text-center"
+                                className="group relative w-full sm:w-auto px-8 py-5 bg-primary-blue text-white rounded-[20px] text-lg font-black shadow-[0_15px_40px_rgba(0,43,154,0.25)] hover:bg-black transition-all flex items-center justify-center gap-3"
                             >
-                                Enroll Now
+                                <span>Enroll Now</span>
+                                <ChevronRight size={20} className="group-hover:translate-x-2 transition-transform" />
                             </button>
-
-                            <div className="flex flex-col gap-4 pt-3 text-base text-text-gray font-medium">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-5 h-5 rounded-full bg-blue-50 flex flex-shrink-0 items-center justify-center text-primary-blue">
-                                        <Check size={12} strokeWidth={3} />
-                                    </div>
-                                    No previous coding experience needed
+                            
+                            <div className="flex flex-col gap-2 text-left">
+                                <div className="flex items-center gap-2 text-xs font-black text-secondary-blue">
+                                    <Monitor size={16} className="text-teal-accent" strokeWidth={3} />
+                                    <span>HYBRID: ONSITE & ONLINE</span>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-5 h-5 rounded-full bg-blue-50 flex flex-shrink-0 items-center justify-center text-primary-blue">
-                                        <Check size={12} strokeWidth={3} />
-                                    </div>
-                                    Build your own AI agents
+                                <div className="flex items-center gap-4 text-[10px] font-black text-secondary-blue/40 uppercase tracking-widest">
+                                    <span className="flex items-center gap-1"><Calendar size={12} /> 4 weeks</span>
+                                    <span className="flex items-center gap-1"><Clock size={12} /> 12-2 PM PKT</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        {/* Collaboration */}
-                        <div className="text-sm text-text-gray font-bold flex flex-col mb-12 sm:mb-20 uppercase tracking-[0.1em] items-center sm:items-start">
-                            <span className="text-gray-400 mb-2 sm:ml-2">In Collaboration with</span>
-                            <span className="flex items-baseline gap-px lowercase sm:ml-2">
-                                <span className="text-[#3ABBA6] text-3xl sm:text-4xl font-black leading-none capitalize">Think</span>
-                                <span className="text-secondary-blue text-3xl sm:text-4xl font-black leading-none capitalize">Yard.</span>
-                            </span>
+                        <div className="flex flex-col items-center lg:items-start gap-4 opacity-50">
+                            <p className="text-[9px] font-black text-text-gray uppercase tracking-[0.3em]">Strategic Partner</p>
+                            <div className="flex items-center gap-1 text-xl font-black text-secondary-blue hover:text-teal-accent transition-colors cursor-crosshair">
+                                <span>Think</span>
+                                <span className="text-teal-accent">yard.</span>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right Column: Hero Graphic */}
-                    <div className="flex-1 w-full max-w-lg lg:max-w-[560px] relative">
-                        {/* Blue glow effect behind the image */}
-                        <div className="absolute -top-16 -right-16 w-96 h-96 bg-[#002B9A]/30 blur-[140px] rounded-full"></div>
-
-                        {/* Representation of the dark video/graph player in design */}
-                        <div className="w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-[#0A0D14] rounded-[30px] sm:rounded-[50px] overflow-hidden relative shadow-2xl z-10 flex flex-col border border-white/5">
-                            {/* Network Graph Graphic representation */}
-                            <div className="flex-1 relative overflow-hidden flex items-center justify-center p-6 sm:p-12 opacity-80">
-                                {/* Abstract graph lines */}
-                                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                    <path d="M10,80 Q30,40 50,60 T90,20" stroke="#00D1FF" strokeWidth="0.5" fill="none" opacity="0.6" className="drop-shadow-[0_0_8px_rgba(0,209,255,0.8)]" />
-                                    <circle cx="10" cy="80" r="2" fill="#00D1FF" opacity="0.8" />
-                                    <circle cx="50" cy="60" r="2.5" fill="#00D1FF" opacity="0.9" />
-                                    <circle cx="90" cy="20" r="2" fill="#00D1FF" opacity="0.8" />
-                                    <path d="M20,90 Q40,50 60,70 T100,30" stroke="#3ABBA6" strokeWidth="0.5" fill="none" opacity="0.4" />
-                                    <circle cx="20" cy="90" r="2.5" fill="#3ABBA6" opacity="0.7" />
-                                    <circle cx="60" cy="70" r="2" fill="#3ABBA6" opacity="0.6" />
-                                    <circle cx="100" cy="30" r="2.5" fill="#3ABBA6" opacity="0.7" />
+                    {/* Right Column: Immersive Graphic Card */}
+            <div className="flex-1 w-full max-w-lg lg:max-w-none relative">
+                        <motion.div 
+                            initial={{ opacity: 0, rotate: 1 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            transition={{ duration: 1.2 }}
+                            className="relative aspect-square lg:aspect-[5/6] bg-secondary-blue rounded-[48px] overflow-hidden shadow-[0_60px_100px_-30px_rgba(0,0,0,0.5)] border border-white/5 group"
+                        >
+                            {/* Inner Glow and Depth */}
+                            <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent"></div>
+                            
+                            {/* Neural Grid Overlay */}
+                            <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <defs>
+                                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.1"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#grid)" />
                                 </svg>
                             </div>
-                            {/* Bottom Controller Bar */}
-                            <div className="p-6 sm:p-12 pt-0 flex justify-between items-center text-white shrink-0 relative z-20">
-                                <div className="text-base sm:text-xl font-bold tracking-[0.1em] text-white/90">Master the Future</div>
-                                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-white/30 flex items-center justify-center">
-                                    <Play size={12} fill="currentColor" className="ml-0.5 text-white/90" />
+
+                            {/* Center Piece */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="relative">
+                                    <motion.div 
+                                        animate={{ scale: [1, 1.1, 1] }}
+                                        transition={{ duration: 4, repeat: Infinity }}
+                                        className="w-32 h-32 bg-teal-accent/20 blur-3xl rounded-full"
+                                    ></motion.div>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="w-20 h-20 bg-white/5 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center text-teal-accent shadow-inner">
+                                            <Cpu size={32} className="animate-pulse" />
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Rotating Satellite Elements */}
+                                    {[0, 1, 2].map((i) => (
+                                        <motion.div 
+                                            key={i}
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: "linear" }}
+                                            className="absolute inset-0 pointer-events-none"
+                                        >
+                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 w-2 h-2 bg-white/30 rounded-full"></div>
+                                        </motion.div>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
+                            
+                            {/* Info Overlay at the bottom */}
+                            <div className="absolute inset-x-0 bottom-0 p-8 lg:p-12 bg-gradient-to-t from-secondary-blue via-secondary-blue/80 to-transparent">
+                                <div className="space-y-4">
+                                    <div className="w-12 h-0.5 bg-teal-accent rounded-full"></div>
+                                    <div className="flex items-center justify-between">
+                                        <div>
+                                            <p className="text-teal-accent text-[10px] font-black uppercase tracking-[0.3em] mb-2">Module 01: Foundations</p>
+                                            <h3 className="text-2xl lg:text-3xl font-black text-white tracking-tight uppercase leading-tight">
+                                                Master the<br />Future Ecosystem
+                                            </h3>
+                                        </div>
+                                        <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-white border border-white/10 group-hover:bg-teal-accent group-hover:text-secondary-blue transition-all">
+                                            <ChevronRight size={20} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                        
+                        {/* Decorative Badge */}
+                        <motion.div 
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 1 }}
+                            className="absolute -top-6 -right-6 px-6 py-6 bg-white rounded-[24px] shadow-2xl z-20 hidden lg:block border border-gray-100"
+                        >
+                            <p className="text-[9px] font-black text-secondary-blue/40 uppercase tracking-widest mb-1">Enrollment Status</p>
+                            <p className="text-xl font-black text-secondary-blue">Batch 01 Open</p>
+                            <div className="mt-3 flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 bg-teal-accent rounded-full animate-ping"></div>
+                                <span className="text-[9px] font-black text-teal-accent uppercase tracking-widest">Limited Seats</span>
+                            </div>
+                        </motion.div>
                     </div>
-
                 </div>
-
-                {/* Integration Logos Section below hero */}
-                <div className="mt-20 sm:mt-48 space-y-8 sm:space-y-12 flex flex-col items-center border-t border-gray-100/0">
-                    <p className="text-[11px] sm:text-[13px] font-bold text-gray-600 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-center px-4">Powering Workflows With</p>
-                    <div className="flex flex-wrap justify-center items-center gap-x-8 sm:gap-x-16 gap-y-8 sm:gap-y-12 text-sm sm:text-base font-bold text-gray-400 px-6">
-                        {/* Conceptual Logos built via Text for precise layout */}
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-sm"></div>n8n</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-full"></div>ChatGPT</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-full"></div>Make</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-sm"></div>Python</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-sm"></div>Javascript</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-sm"></div>Upwork</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-full text-xs">GW</div>Google Workspace</div>
-                        <div className="flex items-center gap-2 sm:gap-3"><div className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 bg-gray-600 rounded-sm shadow-sm text-xs">M3</div>Microsoft 365</div>
-                    </div>
-                </div>
-
             </div>
         </section>
     );

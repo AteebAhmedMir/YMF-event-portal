@@ -1,47 +1,73 @@
+import { motion } from 'framer-motion';
+
 const FeaturesSection = () => {
     return (
-        <section id="features" className="py-20 lg:py-32 bg-[#F9FAFB] flex justify-center px-6 sm:px-8">
-            <div className="container mx-auto max-w-7xl">
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start justify-between">
-
-                    {/* Left Column */}
-                    <div className="flex-1 max-w-2xl">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-black text-secondary-blue leading-[1.2] lg:leading-[1.1] mb-8 lg:mb-16 pt-0 lg:pt-20">
-                            The manual work<br />trap.
+        <section id="features" className="py-20 lg:py-32 bg-white px-6 lg:px-12 relative overflow-hidden">
+            {/* Background Decoration */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 translate-x-1/2 -z-10"></div>
+            
+            <div className="container mx-auto max-w-7xl relative z-10">
+                <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+                    {/* Left Pane */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="flex-1"
+                    >
+                        <h2 className="text-[42px] lg:text-[72px] font-black text-secondary-blue leading-[1] mb-8 tracking-tight">
+                            The manual<br />
+                            work <span className="text-primary-blue/20">trap.</span>
                         </h2>
-                        <p className="text-xl text-text-gray/80 leading-relaxed font-medium">
-                            Professional workloads are often bogged down by repetitive tasks that are mundane and time-consuming. This bootcamp helps you break free through practical AI systems.                        </p>
-                    </div>
+                        <p className="text-lg lg:text-xl text-text-gray/50 leading-relaxed max-w-md font-medium italic">
+                            Break free from the repetitive loops that drain professional energy. 
+                            Our systems don't just "help" — they execute.
+                        </p>
+                    </motion.div>
 
-                    {/* Right Column */}
-                    <div className="flex-1 w-full max-w-3xl relative">
-                        {/* Decorative Line connection mimicking design */}
-                        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden md:block opacity-50 -ml-24"></div>
-
-                        <div className="space-y-12 sm:space-y-16">
-                            {/* Point 1 */}
-                            <div className="relative pb-10 border-b border-gray-200">
-                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Solve Complex Inefficiency</h4>
-                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md"> Move past minor task automations and build full end-to-end intelligent agent workflows.</p>
-                            </div>
-
-                            {/* Point 2 */}
-                            <div className="relative pb-10 border-b border-gray-200">
-                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Boost Domain Impact</h4>
-                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Leverage industry specific data to align AI output directly to high-value outcomes.</p>
-                            </div>
-
-                            {/* Point 3 */}
-                            <div className="relative">
-                                <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Practical Business Logic</h4>
-                                <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Focus on implementation over theory. Connect agents, APIs, and databases seamlessly.</p>
-                            </div>
-                        </div>
+                    {/* Right Pane */}
+                    <div className="flex-1 flex flex-col pt-2">
+                        <FeatureItem 
+                            number="01"
+                            title="Complex Efficiency"
+                            description="Move past manual bottlenecks with systems that can reason through multi-step tasks independently."
+                        />
+                        <FeatureItem 
+                            number="02"
+                            title="Universal Domain Impact"
+                            description="From supply chain to HR, automate workflows across any industry without writing a single line of code."
+                        />
+                        <FeatureItem 
+                            number="03"
+                            title="Logic First Design"
+                            description="Shift your focus from 'doing the work' to 'architecting the decision' using agentic principles."
+                        />
                     </div>
                 </div>
             </div>
         </section>
     );
 };
+
+const FeatureItem = ({ number, title, description }) => (
+    <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="py-10 border-t border-gray-100 group hover:bg-[#F8FAFC] transition-all rounded-[24px] px-6 -mx-6"
+    >
+        <div className="flex gap-6">
+            <span className="text-[12px] font-black text-teal-accent uppercase tracking-widest pt-1.5">{number}</span>
+            <div>
+                <h3 className="text-xl lg:text-2xl font-black text-secondary-blue mb-3 tracking-tight group-hover:text-primary-blue transition-colors">
+                    {title}
+                </h3>
+                <p className="text-base lg:text-lg text-text-gray/50 leading-relaxed font-medium">
+                    {description}
+                </p>
+            </div>
+        </div>
+    </motion.div>
+);
 
 export default FeaturesSection;
