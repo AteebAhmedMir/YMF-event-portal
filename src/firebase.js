@@ -5,13 +5,13 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCvQvCWoWz8f0orTOLniGz661iKFf3tOwg",
-    authDomain: "ymforum-event-portal.firebaseapp.com",
-    projectId: "ymforum-event-portal",
-    storageBucket: "ymforum-event-portal.firebasestorage.app",
-    messagingSenderId: "380392431674",
-    appId: "1:380392431674:web:7193b21863e174e6f5d503",
-    measurementId: "G-KDQ9BT4TJ1"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
