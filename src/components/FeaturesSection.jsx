@@ -1,12 +1,12 @@
 const FeaturesSection = () => {
     return (
-        <section id="features" className="py-32 bg-[#F9FAFB] flex justify-center">
-            <div className="container mx-auto px-8 max-w-7xl">
-                <div className="flex flex-col md:flex-row gap-24 items-start justify-between">
+        <section id="features" className="py-20 lg:py-32 bg-[#F9FAFB] flex justify-center px-6 sm:px-8">
+            <div className="container mx-auto max-w-7xl">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start justify-between">
 
                     {/* Left Column */}
                     <div className="flex-1 max-w-2xl">
-                        <h2 className="text-[48px] font-black text-secondary-blue leading-[1.1] mb-16 pt-20">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-black text-secondary-blue leading-[1.2] lg:leading-[1.1] mb-8 lg:mb-16 pt-0 lg:pt-20">
                             The manual work<br />trap.
                         </h2>
                         <p className="text-xl text-text-gray/80 leading-relaxed font-medium">
@@ -18,7 +18,7 @@ const FeaturesSection = () => {
                         {/* Decorative Line connection mimicking design */}
                         <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden md:block opacity-50 -ml-24"></div>
 
-                        <div className="space-y-16">
+                        <div className="space-y-12 sm:space-y-16">
                             {/* Point 1 */}
                             <div className="relative pb-10 border-b border-gray-200">
                                 <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Solve Complex Inefficiency</h4>
@@ -32,7 +32,7 @@ const FeaturesSection = () => {
                             </div>
 
                             {/* Point 3 */}
-                            <div className="relative pb-10 border-gray-200">
+                            <div className="relative">
                                 <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5">Practical Business Logic</h4>
                                 <p className="text-[16px] text-text-gray/70 leading-relaxed font-medium max-w-md">Focus on implementation over theory. Connect agents, APIs, and databases seamlessly.</p>
                             </div>

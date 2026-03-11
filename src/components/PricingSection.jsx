@@ -26,9 +26,9 @@ const PricingSection = () => {
     return (
         <section id="pricing" className="py-24 bg-white">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold text-primary-blue tracking-widest uppercase mb-3">Investment</h2>
-                    <h3 className="text-4xl font-extrabold text-secondary-blue">Flexible Pricing Plans</h3>
+                <div className="text-center mb-10 sm:mb-16">
+                    <h2 className="text-[12px] sm:text-sm font-bold text-primary-blue tracking-widest uppercase mb-3">Investment</h2>
+                    <h3 className="text-3xl sm:text-4xl font-extrabold text-secondary-blue">Flexible Pricing Plans</h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -39,7 +39,7 @@ const PricingSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className={`relative p-10 rounded-[40px] border ${plan.isPopular ? 'bg-primary-blue text-white border-primary-blue shadow-2xl scale-105 z-10' : 'bg-white text-secondary-blue border-gray-100 shadow-xl'}`}
+                            className={`relative p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] border ${plan.isPopular ? 'bg-primary-blue text-white border-primary-blue shadow-2xl lg:scale-105 z-10' : 'bg-white text-secondary-blue border-gray-100 shadow-xl'}`}
                         >
                             {plan.isPopular && (
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cyan-accent text-primary-blue text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
@@ -68,7 +68,14 @@ const PricingSection = () => {
                             </ul>
 
                             <button
-                                className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${plan.isPopular ? 'bg-white text-primary-blue hover:bg-cyan-accent' : 'bg-primary-blue text-white hover:bg-opacity-90 shadow-lg shadow-primary-blue/20'}`}
+                                onClick={() => {
+                                    const element = document.getElementById('fullName');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        element.focus();
+                                    }
+                                }}
+                                className={`w-full py-4 rounded-xl sm:rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${plan.isPopular ? 'bg-white text-primary-blue hover:bg-cyan-accent' : 'bg-primary-blue text-white hover:bg-opacity-90 shadow-lg shadow-primary-blue/20'}`}
                             >
                                 SUBSCRIBE <ArrowRight size={18} />
                             </button>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Cpu } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -56,28 +57,41 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col gap-4">
-                    {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="text-lg font-medium text-text-gray" onClick={() => setIsMobileMenuOpen(false)}>
-                            {link.name}
-                        </a>
-                    ))}
-                    <button 
-                        onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            const element = document.getElementById('fullName');
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                element.focus();
-                            }
-                        }}
-                        className="bg-primary-blue text-white w-full py-4 rounded-xl text-lg font-semibold"
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-8 px-6 flex flex-col gap-6"
                     >
-                        GET STARTED
-                    </button>
-                </div>
-            )}
+                        {navLinks.map((link) => (
+                            <a 
+                                key={link.name} 
+                                href={link.href} 
+                                className="text-xl font-bold text-secondary-blue border-b border-gray-50 pb-2" 
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                        <button 
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                const element = document.getElementById('fullName');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    element.focus();
+                                }
+                            }}
+                            className="bg-primary-blue text-white w-full py-5 rounded-2xl text-xl font-bold shadow-lg shadow-primary-blue/20 mt-2"
+                        >
+                            GET STARTED
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };

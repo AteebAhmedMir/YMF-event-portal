@@ -106,28 +106,28 @@ const EnrollmentSection = () => {
     return (
         <section id="enroll" className="w-full">
             {/* INSTRUCTORS & FEATURES (Light Gray Background) */}
-            <div className="bg-[#F9FAFB] py-16 px-10 border-b border-gray-100">
+            <div className="bg-[#F9FAFB] py-12 sm:py-16 px-6 sm:px-10 border-b border-gray-100">
                 <div className="container mx-auto max-w-7xl">
-                    <div className="text-center mb-32">
-                        <h3 className="text-2xl font-black text-secondary-blue mb-20 uppercase tracking-[0.2em]">Meet Our Instructors</h3>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-24 md:gap-40">
+                    <div className="text-center mb-16 sm:mb-32">
+                        <h3 className="text-xl sm:text-2xl font-black text-secondary-blue mb-10 sm:mb-20 uppercase tracking-[0.2em]">Meet Our Instructors</h3>
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-12 sm:gap-24 md:gap-40">
                             {/* Instructor 1 */}
-                            <div className="flex items-center gap-8">
-                                <div className="w-[100px] h-[100px] rounded-full bg-gray-200 overflow-hidden flex-shrink-0 relative shadow-inner">
-                                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 font-bold text-3xl">HN</div>
+                            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
+                                <div className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-full bg-gray-200 overflow-hidden flex-shrink-0 relative shadow-inner">
+                                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 font-bold text-2xl sm:text-3xl">HN</div>
                                 </div>
-                                <div className="text-left">
+                                <div className="text-center sm:text-left">
                                     <h4 className="font-bold text-secondary-blue text-xl leading-tight mb-2">Mr. Huzaifa Muhammad Nadeem</h4>
                                     <p className="text-[16px] text-primary-blue font-bold mb-1.5">Lead AI Architect</p>
                                     <p className="text-[14px] text-text-gray/80 font-medium">Works: PKI Solutions, 2x AI Startup</p>
                                 </div>
                             </div>
                             {/* Instructor 2 */}
-                            <div className="flex items-center gap-8">
-                                <div className="w-[100px] h-[100px] rounded-full bg-gray-200 overflow-hidden flex-shrink-0 relative shadow-inner">
-                                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 font-bold text-3xl">HS</div>
+                             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
+                                <div className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-full bg-gray-200 overflow-hidden flex-shrink-0 relative shadow-inner">
+                                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 font-bold text-2xl sm:text-3xl">HS</div>
                                 </div>
-                                <div className="text-left">
+                                <div className="text-center sm:text-left">
                                     <h4 className="font-bold text-secondary-blue text-xl leading-tight mb-2">Mr. Hussain Salim</h4>
                                     <p className="text-[16px] text-primary-blue font-bold mb-1.5">Lead AI Developer & Architect</p>
                                     <p className="text-[14px] text-text-gray/80 font-medium">AI Specialist</p>
@@ -136,7 +136,7 @@ const EnrollmentSection = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap justify-center items-start md:items-center gap-16 md:gap-40">
+                    <div className="flex flex-wrap justify-center items-start md:items-center gap-12 sm:gap-16 md:gap-40">
                         <div className="text-center flex flex-col items-center w-48">
                             <div className="w-20 h-20 flex items-center justify-center mb-8 text-text-gray/60">
                                 <Calendar strokeWidth={1.5} size={56} />
@@ -163,13 +163,13 @@ const EnrollmentSection = () => {
             </div>
 
             {/* PRICING (Dark Blue Background) */}
-            <div className="bg-secondary-blue py-32 px-10 w-full">
+            <div className="bg-secondary-blue py-20 sm:py-32 px-6 sm:px-10 w-full">
                 <div className="container mx-auto">
-                    <div className="flex flex-col md:flex-row gap-16 justify-center max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row gap-8 sm:gap-16 justify-center max-w-7xl mx-auto items-center md:items-stretch">
                         {/* Standard Card */}
-                        <div className="bg-[#2D459D]/50 text-white p-16 rounded-[48px] w-full max-w-lg flex flex-col shadow-2xl border border-white/5">
-                            <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-white/50 mb-6">STANDARD</p>
-                            <h3 className="text-[48px] font-black mb-20 tracking-tight">PKR 25,000</h3>
+                        <div className="bg-[#2D459D]/50 text-white p-10 sm:p-16 rounded-[40px] sm:rounded-[48px] w-full max-w-lg flex flex-col shadow-2xl border border-white/5 order-2 md:order-1">
+                            <p className="text-[13px] sm:text-[14px] font-bold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-6">STANDARD</p>
+                            <h3 className="text-4xl sm:text-[48px] font-black mb-10 sm:mb-20 tracking-tight">PKR 25,000</h3>
                             <button 
                                 onClick={scrollToForm}
                                 className="w-full py-6 mt-auto rounded-2xl border border-white/20 text-white/90 hover:bg-white/10 transition-colors text-xl font-bold"
@@ -178,10 +178,10 @@ const EnrollmentSection = () => {
                             </button>
                         </div>
                         {/* Early Bird Card */}
-                        <div className="bg-[#5CE1CB] text-[#0A192F] p-16 rounded-[48px] w-full max-w-lg relative shadow-2xl -mt-8 transform md:-translate-y-8">
-                            <span className="absolute top-10 right-10 bg-black/5 text-[12px] font-bold px-6 pt-2.5 pb-2 rounded-full uppercase tracking-[0.2em] text-black/60 shadow-sm">SAVE!</span>
-                            <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#0A192F]/60 mb-6">EARLY BIRD</p>
-                            <h3 className="text-[48px] font-black mb-20 tracking-tight">PKR 20,000</h3>
+                        <div className="bg-[#5CE1CB] text-[#0A192F] p-10 sm:p-16 rounded-[40px] sm:rounded-[48px] w-full max-w-lg relative shadow-2xl mt-0 md:-mt-8 transform md:-translate-y-8 order-1 md:order-2">
+                            <span className="absolute top-6 sm:top-10 right-6 sm:right-10 bg-black/5 text-[11px] sm:text-[12px] font-bold px-4 sm:px-6 pt-2 pb-1.5 sm:pt-2.5 sm:pb-2 rounded-full uppercase tracking-[0.2em] text-black/60 shadow-sm">SAVE!</span>
+                            <p className="text-[13px] sm:text-[14px] font-bold uppercase tracking-[0.2em] text-[#0A192F]/60 mb-4 sm:mb-6">EARLY BIRD</p>
+                            <h3 className="text-4xl sm:text-[48px] font-black mb-10 sm:mb-20 tracking-tight">PKR 20,000</h3>
                             <button 
                                 onClick={scrollToForm}
                                 className="w-full py-6 mt-auto rounded-2xl bg-secondary-blue text-white hover:bg-opacity-90 transition-colors text-xl font-bold shadow-2xl"
@@ -194,12 +194,12 @@ const EnrollmentSection = () => {
             </div>
 
             {/* FORM (White Background) */}
-            <div className="bg-white py-32 px-10 w-full">
+            <div className="bg-white py-20 sm:py-32 px-6 sm:px-10 w-full">
                 <div className="container mx-auto max-w-4xl">
                     <form onSubmit={handleSubmit} className="space-y-12">
                         {/* Full Name */}
-                        <div className="space-y-4">
-                            <label className="text-xl font-bold text-secondary-blue">Full Name *</label>
+                        <div className="space-y-3 sm:space-y-4">
+                            <label className="text-lg sm:text-xl font-bold text-secondary-blue">Full Name *</label>
                             <input
                                 type="text"
                                 id="fullName"
@@ -208,12 +208,12 @@ const EnrollmentSection = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder='e.g "Ahmed Shoaib"'
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                             />
                         </div>
 
                         {/* Email */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">Email *</label>
                             <input
                                 type="email"
@@ -222,12 +222,12 @@ const EnrollmentSection = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder='Email: "name@company.com"'
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                             />
                         </div>
 
                         {/* Mobile/WhatsApp */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">Mobile/WhatsApp Number *</label>
                             <div className="flex relative">
                                 <div className="absolute left-8 top-1/2 -translate-y-1/2 flex items-center justify-center">
@@ -240,13 +240,13 @@ const EnrollmentSection = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder="* +92 3xx xxxxxxx"
-                                    className="w-full pl-20 pr-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                    className="w-full pl-20 pr-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                                 />
                             </div>
                         </div>
 
                         {/* Job Title */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">Current Job Title & Organization *</label>
                             <input
                                 type="text"
@@ -255,12 +255,12 @@ const EnrollmentSection = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder='"e.g. Operations Manager at ABC Corp"'
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                             />
                         </div>
 
                         {/* LinkedIn */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">LinkedIn Profile Link (Optional)</label>
                             <div className="flex relative">
                                 <div className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400 font-semibold text-base">URL</div>
@@ -270,13 +270,13 @@ const EnrollmentSection = () => {
                                     value={formData.linkedin}
                                     onChange={handleChange}
                                     placeholder='"linkedin.com/in/yourprofile"'
-                                    className="w-full pl-24 pr-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                    className="w-full pl-24 pr-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                                 />
                             </div>
                         </div>
 
                         {/* Qualification */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">Highest Qualification *</label>
                             <input
                                 type="text"
@@ -285,7 +285,7 @@ const EnrollmentSection = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Enter your education level..."
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-t-xl border-b-0 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-t-xl border-b-0 focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                             />
                             <div className="w-full px-8 py-4 bg-gray-50 border border-gray-200 rounded-b-xl text-[16px] text-text-gray/60 font-medium tracking-wide">
                                 e.g. Bachelors, Masters etc.
@@ -293,7 +293,7 @@ const EnrollmentSection = () => {
                         </div>
 
                         {/* Industry */}
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <label className="text-xl font-bold text-secondary-blue">Industry/Department *</label>
                             <input
                                 type="text"
@@ -302,7 +302,7 @@ const EnrollmentSection = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder="e.g. HR, Supply Chain, Finance"
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400"
                             />
                         </div>
 
@@ -331,7 +331,7 @@ const EnrollmentSection = () => {
                                 required
                                 rows="5"
                                 placeholder="Describe one specific business task you want to automate..."
-                                className="w-full px-8 py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-xl text-secondary-blue placeholder-gray-400 resize-none font-medium leading-relaxed"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border border-gray-200 rounded-xl focus:border-primary-blue focus:ring-1 focus:ring-primary-blue outline-none transition-all text-lg sm:text-xl text-secondary-blue placeholder-gray-400 resize-none font-medium leading-relaxed"
                             ></textarea>
                         </div>
 
@@ -393,15 +393,15 @@ const EnrollmentSection = () => {
                     </div>
 
                     {/* Right Subscribe block */}
-                    <div className="bg-[#1A2552] p-16 rounded-[48px] border border-white/5 w-full max-w-lg shadow-2xl flex flex-col items-center">
-                        <h4 className="font-bold text-xl mb-12 text-center text-white/90 leading-relaxed">Get exclusive updates<br />straight to your inbox!</h4>
-                        <div className="w-full space-y-6">
+                    <div className="bg-[#1A2552] p-8 sm:p-16 rounded-[40px] sm:rounded-[48px] border border-white/5 w-full max-w-lg shadow-2xl flex flex-col items-center">
+                        <h4 className="font-bold text-lg sm:text-xl mb-8 sm:mb-12 text-center text-white/90 leading-relaxed">Get exclusive updates<br />straight to your inbox!</h4>
+                        <div className="w-full space-y-4 sm:space-y-6">
                             <input
                                 type="email"
                                 placeholder="Email *"
-                                className="w-full px-8 py-5 bg-white border-0 rounded-xl focus:ring-2 focus:ring-[#3ABBA6] outline-none text-base text-secondary-blue font-bold placeholder-gray-400 text-center"
+                                className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-white border-0 rounded-xl focus:ring-2 focus:ring-[#3ABBA6] outline-none text-base text-secondary-blue font-bold placeholder-gray-400 text-center"
                             />
-                            <button className="w-full py-5 bg-secondary-blue hover:bg-[#131b40] text-base font-bold rounded-xl transition-colors border border-white/10 shadow-2xl">
+                            <button className="w-full py-4 sm:py-5 bg-secondary-blue hover:bg-[#131b40] text-base font-bold rounded-xl transition-colors border border-white/10 shadow-2xl">
                                 Subscribe
                             </button>
                         </div>

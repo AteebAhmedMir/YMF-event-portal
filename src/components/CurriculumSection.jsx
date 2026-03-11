@@ -1,12 +1,12 @@
 const CurriculumSection = () => {
     return (
-        <section id="curriculum" className="py-32 bg-[#F9FAFB] flex flex-col items-center px-8">
+        <section id="curriculum" className="py-20 lg:py-32 bg-[#F9FAFB] flex flex-col items-center px-6 sm:px-8">
             <div className="container mx-auto max-w-7xl">
-                <div className="flex flex-col md:flex-row gap-24 items-start justify-between">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start justify-between">
 
                     {/* Left Column */}
                     <div className="flex-1 max-w-2xl">
-                        <h2 className="text-[48px] font-black text-secondary-blue leading-[1.1] mb-10 pt-48">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-black text-secondary-blue leading-[1.2] lg:leading-[1.1] mb-6 lg:mb-10 pt-0 lg:pt-48">
                             Curriculum
                         </h2>
                         <p className="text-xl text-text-gray/80 leading-relaxed font-medium">
@@ -16,9 +16,9 @@ const CurriculumSection = () => {
                     {/* Right Column (List) */}
                     <div className="flex-1 w-full max-w-3xl relative pb-16">
                         {/* Decorative Line connection mimicking design */}
-                        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden md:block opacity-50 -ml-24"></div>
+                        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 hidden lg:block opacity-50 -ml-24"></div>
 
-                        <div className="space-y-16">
+                        <div className="space-y-12 sm:space-y-16">
                             {/* Week 1 */}
                             <div className="relative pb-10 border-b border-gray-200">
                                 <h4 className="text-[20px] font-bold text-secondary-blue mb-3.5 uppercase tracking-widest">Foundations & System Design (Week 1)</h4>
@@ -50,7 +50,7 @@ const CurriculumSection = () => {
                                 element.focus();
                             }
                         }}
-                        className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-24 rounded-xl text-4xl transition-all shadow-[0_15px_35px_rgba(0,43,154,0.3)] hover:shadow-[0_18px_40px_rgba(0,43,154,0.4)] active:scale-95"
+                        className="w-full sm:w-auto bg-primary-blue hover:bg-blue-800 text-white font-bold py-5 sm:py-6 px-12 sm:px-24 rounded-xl text-xl sm:text-4xl transition-all shadow-[0_15px_35px_rgba(0,43,154,0.3)] hover:shadow-[0_18px_40px_rgba(0,43,154,0.4)] active:scale-95 text-center"
                     >
                         Register Now
                     </button>
