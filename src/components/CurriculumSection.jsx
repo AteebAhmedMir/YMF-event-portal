@@ -42,7 +42,16 @@ const CurriculumSection = () => {
 
                 {/* Register Now Button centered below */}
                 <div className="mt-20 flex justify-center">
-                    <button className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-24 rounded-xl text-4xl transition-all shadow-[0_15px_35px_rgba(0,43,154,0.3)] hover:shadow-[0_18px_40px_rgba(0,43,154,0.4)] active:scale-95">
+                    <button 
+                        onClick={() => {
+                            const element = document.getElementById('fullName');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                element.focus();
+                            }
+                        }}
+                        className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-24 rounded-xl text-4xl transition-all shadow-[0_15px_35px_rgba(0,43,154,0.3)] hover:shadow-[0_18px_40px_rgba(0,43,154,0.4)] active:scale-95"
+                    >
                         Register Now
                     </button>
                 </div>

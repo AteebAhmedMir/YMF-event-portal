@@ -35,7 +35,16 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <button className="bg-primary-blue text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-all shadow-md">
+                    <button 
+                        onClick={() => {
+                            const element = document.getElementById('fullName');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                element.focus();
+                            }
+                        }}
+                        className="bg-primary-blue text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-all shadow-md"
+                    >
                         GET STARTED
                     </button>
                 </div>
@@ -54,7 +63,17 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <button className="bg-primary-blue text-white w-full py-4 rounded-xl text-lg font-semibold">
+                    <button 
+                        onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            const element = document.getElementById('fullName');
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                element.focus();
+                            }
+                        }}
+                        className="bg-primary-blue text-white w-full py-4 rounded-xl text-lg font-semibold"
+                    >
                         GET STARTED
                     </button>
                 </div>

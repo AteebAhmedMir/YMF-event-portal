@@ -31,7 +31,16 @@ const HeroSection = () => {
 
                         {/* Enroll Now & Checklist */}
                         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-16 mb-12">
-                            <button className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-16 rounded-full text-xl shadow-[0_15px_35px_rgba(0,43,154,0.3)] transition-all active:scale-95">
+                            <button 
+                                onClick={() => {
+                                    const element = document.getElementById('fullName');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        element.focus();
+                                    }
+                                }}
+                                className="bg-primary-blue hover:bg-blue-800 text-white font-bold py-6 px-16 rounded-full text-xl shadow-[0_15px_35px_rgba(0,43,154,0.3)] transition-all active:scale-95"
+                            >
                                 Enroll Now
                             </button>
 

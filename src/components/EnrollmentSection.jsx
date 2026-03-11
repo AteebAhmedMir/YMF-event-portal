@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { db } from '../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, query, where, getDocs } from 'firebase/firestore';
 import toast from 'react-hot-toast';
 import { Calendar, Monitor, MessageCircle } from 'lucide-react';
 
@@ -24,7 +24,52 @@ const EnrollmentSection = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
+        // Client-side validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            toast.error('Please enter a valid email address.');
+            setIsSubmitting(false);
+            return;
+        }
+
+        // Basic Pakistani phone number validation
+        // Expected formats: +92 3xx xxxxxxx, 03xxxxxxxxxx, 923xxxxxxxxx
+        const cleanPhone = formData.phone.replace(/[\s-]/g, '');
+        const phoneRegex = /^((\+92)|(92)|(0))3\d{9}$/;
+        if (!phoneRegex.test(cleanPhone)) {
+            toast.error('Please enter a valid Pakistani mobile number (+92 3xx xxxxxxx).');
+            setIsSubmitting(false);
+            return;
+        }
+
+        if (formData.linkedin && !formData.linkedin.toLowerCase().includes('linkedin.com/')) {
+            toast.error('Please enter a valid LinkedIn profile link.');
+            setIsSubmitting(false);
+            return;
+        }
+
         try {
+            // Uniqueness check for email and phone
+            const emailQuery = query(collection(db, 'enrollments'), where('email', '==', formData.email));
+            const phoneQuery = query(collection(db, 'enrollments'), where('phone', '==', formData.phone));
+            
+            const [emailSnapshot, phoneSnapshot] = await Promise.all([
+                getDocs(emailQuery),
+                getDocs(phoneQuery)
+            ]);
+
+            if (!emailSnapshot.empty) {
+                toast.error('This email is already registered.');
+                setIsSubmitting(false);
+                return;
+            }
+
+            if (!phoneSnapshot.empty) {
+                toast.error('This phone number is already registered.');
+                setIsSubmitting(false);
+                return;
+            }
+
             await addDoc(collection(db, 'enrollments'), {
                 ...formData,
                 createdAt: serverTimestamp()
@@ -35,11 +80,22 @@ const EnrollmentSection = () => {
                 fullName: '', email: '', phone: '', jobTitle: '', linkedin: '',
                 qualification: '', industry: '', learningMode: '', workflowIdea: '', freelanceInterest: ''
             });
+
+            // Reset radio buttons manually if needed (not strictly necessary with controlled state but good habit)
         } catch (error) {
             console.error('Error submitting enrollment:', error);
             toast.error('Failed to submit enrollment. Please try again.');
         } finally {
             setIsSubmitting(false);
+        }
+    };
+
+    const scrollToForm = (e) => {
+        if (e) e.preventDefault();
+        const element = document.getElementById('fullName');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            element.focus();
         }
     };
 
@@ -114,7 +170,10 @@ const EnrollmentSection = () => {
                         <div className="bg-[#2D459D]/50 text-white p-16 rounded-[48px] w-full max-w-lg flex flex-col shadow-2xl border border-white/5">
                             <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-white/50 mb-6">STANDARD</p>
                             <h3 className="text-[48px] font-black mb-20 tracking-tight">PKR 25,000</h3>
-                            <button className="w-full py-6 mt-auto rounded-2xl border border-white/20 text-white/90 hover:bg-white/10 transition-colors text-xl font-bold">
+                            <button 
+                                onClick={scrollToForm}
+                                className="w-full py-6 mt-auto rounded-2xl border border-white/20 text-white/90 hover:bg-white/10 transition-colors text-xl font-bold"
+                            >
                                 Apply Now
                             </button>
                         </div>
@@ -123,7 +182,10 @@ const EnrollmentSection = () => {
                             <span className="absolute top-10 right-10 bg-black/5 text-[12px] font-bold px-6 pt-2.5 pb-2 rounded-full uppercase tracking-[0.2em] text-black/60 shadow-sm">SAVE!</span>
                             <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#0A192F]/60 mb-6">EARLY BIRD</p>
                             <h3 className="text-[48px] font-black mb-20 tracking-tight">PKR 20,000</h3>
-                            <button className="w-full py-6 mt-auto rounded-2xl bg-secondary-blue text-white hover:bg-opacity-90 transition-colors text-xl font-bold shadow-2xl">
+                            <button 
+                                onClick={scrollToForm}
+                                className="w-full py-6 mt-auto rounded-2xl bg-secondary-blue text-white hover:bg-opacity-90 transition-colors text-xl font-bold shadow-2xl"
+                            >
                                 Apply Now
                             </button>
                         </div>
@@ -140,6 +202,7 @@ const EnrollmentSection = () => {
                             <label className="text-xl font-bold text-secondary-blue">Full Name *</label>
                             <input
                                 type="text"
+                                id="fullName"
                                 name="fullName"
                                 value={formData.fullName}
                                 onChange={handleChange}
