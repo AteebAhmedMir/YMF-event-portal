@@ -29,10 +29,10 @@ const WhatWeBuildSection = () => {
         <section className="py-20 lg:py-32 bg-white flex flex-col items-center px-6 lg:px-12 relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-100 to-transparent"></div>
-            
+
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="flex flex-col items-center mb-20">
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         className="text-[10px] font-black text-teal-accent uppercase tracking-[0.4em] mb-6"
@@ -41,13 +41,13 @@ const WhatWeBuildSection = () => {
                     </motion.p>
                     <h2 className="text-[42px] lg:text-[72px] font-black text-secondary-blue text-center tracking-tight leading-[1]">
                         What you will<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-teal-accent">actually build.</span>
+                        <span className="text-primary-blue">actually build.</span>
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                     {builds.map((build, index) => (
-                        <motion.div 
+                        <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ const WhatWeBuildSection = () => {
                         >
                             {/* Hover Gradient Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 to-teal-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            
+
                             <div className="relative z-10">
                                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-blue mb-8 shadow-sm group-hover:scale-110 group-hover:bg-primary-blue group-hover:text-white transition-all duration-500">
                                     {build.icon}
@@ -69,7 +69,7 @@ const WhatWeBuildSection = () => {
                                 <p className="text-base text-text-gray/50 leading-relaxed font-medium mb-8">
                                     {build.description}
                                 </p>
-                                
+
                                 <div className="flex items-center gap-2 text-primary-blue font-black text-[12px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                                     <span>Learn More</span>
                                     <ArrowUpRight size={16} />

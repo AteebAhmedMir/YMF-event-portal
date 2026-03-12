@@ -26,9 +26,9 @@ const EnrollmentSection = () => {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
-             toast.error('Please enter a valid email.');
-             setIsSubmitting(false);
-             return;
+            toast.error('Please enter a valid email.');
+            setIsSubmitting(false);
+            return;
         }
 
         try {
@@ -68,11 +68,11 @@ const EnrollmentSection = () => {
             {/* Instructors Section */}
             <div className="py-24 lg:py-32 px-6 lg:px-12 relative border-t border-gray-100">
                 <div className="absolute top-0 right-0 w-2/3 h-full bg-slate-50/50 -skew-x-12 translate-x-1/4 -z-10"></div>
-                
+
                 <div className="container mx-auto max-w-7xl">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
                         <div className="flex-1">
-                            <motion.p 
+                            <motion.p
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 className="text-[10px] font-bold text-primary-blue uppercase tracking-[0.4em] mb-8"
@@ -82,14 +82,14 @@ const EnrollmentSection = () => {
                             <h2 className="text-[42px] lg:text-[72px] font-black text-secondary-blue leading-[1.1] tracking-tight mb-12">
                                 Learn from those who <span className="text-teal-accent">actually build.</span>
                             </h2>
-                            
+
                             <div className="space-y-8">
-                                <InstructorBlock 
+                                <InstructorBlock
                                     name="Hashim M. Nadeem"
                                     role="LEAD ML ENGINEER @ MARKAZ (YC)"
                                     initials="H"
                                 />
-                                <InstructorBlock 
+                                <InstructorBlock
                                     name="Husnain Sattar"
                                     role="CTO @ EYNVISION"
                                     initials="S"
@@ -98,33 +98,33 @@ const EnrollmentSection = () => {
                         </div>
 
                         <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-                             <FeatureCard icon={<Calendar className="text-primary-blue" size={20} />} title="4 Weeks" detail="Weekend Momentum" />
-                             <FeatureCard icon={<Monitor className="text-teal-accent" size={20} />} title="Hybrid" detail="Local & Global" />
-                             <FeatureCard icon={<MessageCircle className="text-primary-blue" size={20} />} title="Support" detail="TA-Led Sessions" />
-                             <FeatureCard icon={<Sparkles className="text-teal-accent" size={20} />} title="Project" detail="ROI-Focused" />
+                            <FeatureCard icon={<Calendar className="text-primary-blue" size={20} />} title="4 Weeks" detail="Weekend Momentum" />
+                            <FeatureCard icon={<Monitor className="text-teal-accent" size={20} />} title="Hybrid" detail="Local & Global" />
+                            <FeatureCard icon={<MessageCircle className="text-primary-blue" size={20} />} title="Support" detail="TA-Led Sessions" />
+                            <FeatureCard icon={<Sparkles className="text-teal-accent" size={20} />} title="Project" detail="ROI-Focused" />
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Pricing Section */}
-            <div className="bg-secondary-blue py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/20 to-teal-accent/20 opacity-50"></div>
-                
+            <div className="bg-[#00164d] py-24 lg:py-32 px-6 lg:px-12 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/10 to-[#6ee7b7]/5 opacity-30"></div>
+
                 <div className="container mx-auto max-w-5xl relative z-10">
-                    <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-stretch">
-                        <PricingGlassCard 
-                            type="Standard Enrollment" 
-                            price="PKR 25,000" 
+                    <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-stretch justify-center">
+                        <PricingGlassCard
+                            type="STANDARD"
+                            price="25,000"
                             features={["Full Curriculum Access", "Weekly Support Sessions", "Project Review"]}
-                            className="bg-white/5 border-white/10"
+                            className="bg-[#1e3a8a]/30 border-[#1e3a8a] text-white/90 backdrop-blur-md"
                         />
-                        <PricingGlassCard 
-                            type="Early Bird Access" 
-                            price="PKR 20,000" 
+                        <PricingGlassCard
+                            type="EARLY BIRD"
+                            price="20,000"
                             isFeatured
                             features={["Priority TA Support", "Lifetime Alumni Access", "1-on-1 Strategy Session"]}
-                            className="bg-white/10 border-teal-accent/30 shadow-2xl"
+                            className="bg-[#6ee7b7] border-[#6ee7b7] text-[#00164d] shadow-2xl"
                         />
                     </div>
                 </div>
@@ -136,80 +136,80 @@ const EnrollmentSection = () => {
                     <form onSubmit={handleSubmit} className="space-y-8">
                         {/* Full Name */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Full Name *</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">Full Name *</label>
+                            <input
                                 id="fullName"
                                 type="text" name="fullName" value={formData.fullName} onChange={handleChange} required
                                 placeholder='e.g "Ahmed Shoaib"'
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
+                            />
                         </div>
 
                         {/* Email */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Email *</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">Email *</label>
+                            <input
                                 type="email" name="email" value={formData.email} onChange={handleChange} required
                                 placeholder='Email: "name@company.com"'
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
+                            />
                         </div>
 
                         {/* Mobile/WhatsApp */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Mobile/WhatsApp Number*</label>
-                             <div className="flex items-center border border-gray-200 rounded-md focus-within:ring-1 focus-within:ring-primary-blue transition-all">
-                                 <div className="flex items-center gap-2 px-3 border-r border-gray-100 shrink-0">
-                                     <span className="text-lg">🇵🇰</span>
-                                     <span className="text-gray-400 text-sm">▼</span>
-                                 </div>
-                                 <input 
+                            <label className="text-sm font-bold text-gray-700">Mobile/WhatsApp Number*</label>
+                            <div className="flex items-center border border-gray-200 rounded-md focus-within:ring-1 focus-within:ring-primary-blue transition-all">
+                                <div className="flex items-center gap-2 px-3 border-r border-gray-100 shrink-0">
+                                    <span className="text-lg">🇵🇰</span>
+                                    <span className="text-gray-400 text-sm">▼</span>
+                                </div>
+                                <input
                                     type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                                     placeholder='"+92 3xx xxxxxxx"'
                                     className="w-full py-3 px-4 text-gray-900 placeholder-gray-300 outline-none bg-transparent"
-                                 />
-                             </div>
+                                />
+                            </div>
                         </div>
 
                         {/* Job Title */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Current Job Title & Organization*</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">Current Job Title & Organization*</label>
+                            <input
                                 type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} required
                                 placeholder='"e.g. Operations Manager at ABC Corp"'
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
+                            />
                         </div>
 
                         {/* LinkedIn */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">LinkedIn Profile Link (Optional)</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">LinkedIn Profile Link (Optional)</label>
+                            <input
                                 type="text" name="linkedin" value={formData.linkedin} onChange={handleChange}
                                 placeholder='URL: "linkedin.com/in/yourprofile"'
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
+                            />
                         </div>
 
                         {/* Qualification */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Highest Qualification*</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">Highest Qualification*</label>
+                            <input
                                 type="text" name="qualification" value={formData.qualification} onChange={handleChange} required
                                 placeholder="Enter your education level..."
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
-                             <p className="text-xs text-gray-400">E.g Bachelors, Masters etc.</p>
+                            />
+                            <p className="text-xs text-gray-400">E.g Bachelors, Masters etc.</p>
                         </div>
 
                         {/* Industry */}
                         <div className="space-y-2">
-                             <label className="text-sm font-bold text-gray-700">Industry/Department*</label>
-                             <input 
+                            <label className="text-sm font-bold text-gray-700">Industry/Department*</label>
+                            <input
                                 type="text" name="industry" value={formData.industry} onChange={handleChange} required
                                 placeholder="e.g. HR, Supply Chain, Finance"
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all"
-                             />
+                            />
                         </div>
 
                         {/* Learning Mode */}
@@ -217,18 +217,18 @@ const EnrollmentSection = () => {
                             <label className="text-sm font-bold text-gray-700 block">Preferred Learning Mode*</label>
                             <div className="space-y-3">
                                 <label className="flex items-center gap-3 cursor-pointer group">
-                                    <input 
-                                        type="radio" name="learningMode" value="onsite" 
-                                        checked={formData.learningMode === 'onsite'} 
+                                    <input
+                                        type="radio" name="learningMode" value="onsite"
+                                        checked={formData.learningMode === 'onsite'}
                                         onChange={handleChange} required
                                         className="w-4 h-4 text-primary-blue focus:ring-primary-blue"
                                     />
                                     <span className="text-sm font-medium text-gray-700">Onsite (ThinkYard, DHA-2, Islamabad)</span>
                                 </label>
                                 <label className="flex items-center gap-3 cursor-pointer group">
-                                    <input 
-                                        type="radio" name="learningMode" value="online" 
-                                        checked={formData.learningMode === 'online'} 
+                                    <input
+                                        type="radio" name="learningMode" value="online"
+                                        checked={formData.learningMode === 'online'}
                                         onChange={handleChange} required
                                         className="w-4 h-4 text-primary-blue focus:ring-primary-blue"
                                     />
@@ -240,7 +240,7 @@ const EnrollmentSection = () => {
                         {/* Workflow Idea */}
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-gray-700 block">Workflow Idea*</label>
-                            <textarea 
+                            <textarea
                                 name="workflowIdea" value={formData.workflowIdea} onChange={handleChange} required rows="4"
                                 placeholder={`"Describe one specific business task you want to automate (e.g., 'I want to automate the screening of resumes in HR')."`}
                                 className="w-full border border-gray-200 rounded-md py-3 px-4 text-gray-900 placeholder-gray-300 focus:ring-1 focus:ring-primary-blue outline-none transition-all resize-none"
@@ -255,18 +255,18 @@ const EnrollmentSection = () => {
                             </div>
                             <div className="flex gap-8">
                                 <label className="flex items-center gap-3 cursor-pointer group">
-                                    <input 
-                                        type="radio" name="freelanceInterest" value="yes" 
-                                        checked={formData.freelanceInterest === 'yes'} 
+                                    <input
+                                        type="radio" name="freelanceInterest" value="yes"
+                                        checked={formData.freelanceInterest === 'yes'}
                                         onChange={handleChange} required
                                         className="w-4 h-4 text-primary-blue focus:ring-primary-blue"
                                     />
                                     <span className="text-sm font-medium text-gray-700">Yes</span>
                                 </label>
                                 <label className="flex items-center gap-3 cursor-pointer group">
-                                    <input 
-                                        type="radio" name="freelanceInterest" value="no" 
-                                        checked={formData.freelanceInterest === 'no'} 
+                                    <input
+                                        type="radio" name="freelanceInterest" value="no"
+                                        checked={formData.freelanceInterest === 'no'}
                                         onChange={handleChange} required
                                         className="w-4 h-4 text-primary-blue focus:ring-primary-blue"
                                     />
@@ -275,7 +275,7 @@ const EnrollmentSection = () => {
                             </div>
                         </div>
 
-                        <button 
+                        <button
                             type="submit" disabled={isSubmitting}
                             className="w-full py-4 bg-[#001A72] text-white rounded-md text-sm font-bold transition-all hover:bg-black active:scale-[0.99] disabled:opacity-50 shadow-md"
                         >
@@ -289,7 +289,7 @@ const EnrollmentSection = () => {
 };
 
 const InstructorBlock = ({ name, role, initials }) => (
-    <motion.div 
+    <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         className="flex items-center gap-6 group"
@@ -305,7 +305,7 @@ const InstructorBlock = ({ name, role, initials }) => (
 );
 
 const FeatureCard = ({ icon, title, detail }) => (
-    <motion.div 
+    <motion.div
         whileHover={{ y: -5 }}
         className="p-6 bg-white border border-gray-100 rounded-[24px] shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center"
     >
@@ -318,31 +318,44 @@ const FeatureCard = ({ icon, title, detail }) => (
 );
 
 const PricingGlassCard = ({ type, price, features, isFeatured, className }) => (
-    <motion.div 
+    <motion.div
         whileHover={{ scale: 1.02 }}
-        className={`flex-1 p-10 lg:p-14 rounded-[32px] border border-white/10 flex flex-col items-center text-center relative overflow-hidden glass-card ${className}`}
+        className={`flex-1 p-10 lg:p-14 rounded-[40px] border flex flex-col items-center text-center relative overflow-hidden transition-all duration-500 ${className}`}
     >
-        {isFeatured && <div className="absolute top-0 inset-x-0 h-1.5 bg-teal-accent"></div>}
-        <p className="text-[9px] font-black uppercase tracking-[0.4em] text-white/40 mb-8">{type}</p>
-        <h3 className="text-3xl lg:text-5xl font-black text-white leading-none mb-10 tracking-tight italic">
-            {price}
-        </h3>
-        
-        <div className="space-y-3 w-full mb-12">
+        {isFeatured && (
+            <div className="absolute top-10 right-10 bg-[#1e3a8a]/10 text-[#00164d] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-[#00164d]/10">
+                LIMITED
+            </div>
+        )}
+        <p className={`text-[10px] font-black uppercase tracking-[0.4em] mb-12 ${isFeatured ? 'text-[#00164d]/60' : 'text-white/40'}`}>
+            {type}
+        </p>
+
+        <div className="flex items-baseline gap-2 mb-14">
+            <span className="text-xl font-black">PKR</span>
+            <span className={`text-5xl lg:text-7xl font-black tracking-tight ${!isFeatured ? 'line-through decoration-white/30' : ''}`}>
+                {price}
+            </span>
+        </div>
+
+        <div className="space-y-4 w-full mb-16 px-4">
             {features.map((f, i) => (
-                <div key={i} className="flex items-center gap-3 text-white/50 text-sm font-medium justify-center">
-                    <CheckCircle2 size={14} className="text-teal-accent" />
+                <div key={i} className={`flex items-center gap-3 text-sm font-bold justify-center ${isFeatured ? 'text-[#00164d]/70' : 'text-white/50'}`}>
+                    <CheckCircle2 size={16} className={isFeatured ? 'text-[#00164d]' : 'text-teal-accent'} />
                     <span>{f}</span>
                 </div>
             ))}
         </div>
 
-        <button 
+        <button
             onClick={() => {
                 const el = document.getElementById('fullName');
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }}
-            className={`w-full py-5 rounded-2xl text-lg font-black transition-all ${isFeatured ? 'bg-white text-secondary-blue hover:bg-teal-accent active:scale-[0.95] shadow-lg' : 'bg-white/10 text-white hover:bg-white/20 active:scale-[0.95]'}`}
+            className={`w-full py-5 rounded-2xl text-sm font-black uppercase tracking-widest transition-all ${isFeatured
+                    ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-xl'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                }`}
         >
             APPLY NOW
         </button>

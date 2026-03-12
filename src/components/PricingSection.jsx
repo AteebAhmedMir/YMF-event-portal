@@ -4,34 +4,30 @@ import { Check, ArrowRight } from 'lucide-react';
 const PricingSection = () => {
     const plans = [
         {
-            name: "BASIC",
+            name: "STANDARD",
             price: "25,000",
+            status: "disabled",
             features: ["Video Access", "Community", "Course Handbook", "Support"],
-            isPopular: false
+            isEarlyBird: false
         },
         {
-            name: "PRO",
-            price: "25,000",
-            features: ["Video Access", "Community", "Mentor Support", "Live Q&A", "Job Assistance"],
-            isPopular: true
-        },
-        {
-            name: "ELITE",
-            price: "25,000",
-            features: ["Video Access", "Community", "1-on-1 Mentorship", "Direct Referrals", "Lifetime Access"],
-            isPopular: false
+            name: "EARLY BIRD",
+            price: "20,000",
+            status: "active",
+            features: ["Everything in Standard", "Mentor Support", "Live Q&A", "Job Assistance", "Limited Slots"],
+            isEarlyBird: true
         }
     ];
 
     return (
-        <section id="pricing" className="py-24 bg-white">
+        <section id="pricing" className="py-24 bg-[#00164d]">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-10 sm:mb-16">
-                    <h2 className="text-[12px] sm:text-sm font-bold text-primary-blue tracking-widest uppercase mb-3">Investment</h2>
-                    <h3 className="text-3xl sm:text-4xl font-extrabold text-secondary-blue">Flexible Pricing Plans</h3>
+                <div className="text-center mb-10 sm:mb-20">
+                    <h2 className="text-[12px] sm:text-sm font-bold text-[#6ee7b7] tracking-widest uppercase mb-3">Investment</h2>
+                    <h3 className="text-3xl sm:text-5xl font-black text-white">Secure Your Future</h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto">
                     {plans.map((plan, index) => (
                         <motion.div
                             key={plan.name}
@@ -39,33 +35,27 @@ const PricingSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className={`relative p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] border ${plan.isPopular ? 'bg-primary-blue text-white border-primary-blue shadow-2xl lg:scale-105 z-10' : 'bg-white text-secondary-blue border-gray-100 shadow-xl'}`}
+                            className={`relative w-full md:w-[420px] p-8 sm:p-12 rounded-[40px] border transition-all duration-500 shadow-2xl ${plan.isEarlyBird
+                                    ? 'bg-[#6ee7b7] text-[#00164d] border-[#6ee7b7]'
+                                    : 'bg-[#1e3a8a]/40 text-white/90 border-[#1e3a8a] backdrop-blur-sm'
+                                }`}
                         >
-                            {plan.isPopular && (
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cyan-accent text-primary-blue text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
-                                    MOST POPULAR
+                            {plan.isEarlyBird && (
+                                <div className="absolute top-8 right-8 bg-[#1e3a8a]/20 text-[#00164d] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-[#00164d]/10">
+                                    LIMITED
                                 </div>
                             )}
 
-                            <div className="mb-8 text-center uppercase tracking-widest font-bold text-sm opacity-80">
+                            <div className={`mb-10 uppercase tracking-[0.2em] font-black text-xs ${plan.isEarlyBird ? 'text-[#00164d]/60' : 'text-white/40'}`}>
                                 {plan.name}
                             </div>
 
-                            <div className="flex items-baseline justify-center gap-1 mb-8">
-                                <span className="text-lg font-bold">PKR</span>
-                                <span className="text-5xl font-black">{plan.price}</span>
+                            <div className="flex items-baseline gap-2 mb-12">
+                                <span className="text-xl font-black">PKR</span>
+                                <span className={`text-5xl sm:text-6xl font-black tracking-tight ${!plan.isEarlyBird ? 'line-through decoration-white/30' : ''}`}>
+                                    {plan.price}
+                                </span>
                             </div>
-
-                            <ul className="space-y-4 mb-10">
-                                {plan.features.map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.isPopular ? 'bg-white/20' : 'bg-blue-50'}`}>
-                                            <Check size={12} className={plan.isPopular ? 'text-cyan-accent' : 'text-primary-blue'} />
-                                        </div>
-                                        <span className="text-sm font-medium opacity-90">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
 
                             <button
                                 onClick={() => {
@@ -75,9 +65,12 @@ const PricingSection = () => {
                                         element.focus();
                                     }
                                 }}
-                                className={`w-full py-4 rounded-xl sm:rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${plan.isPopular ? 'bg-white text-primary-blue hover:bg-cyan-accent' : 'bg-primary-blue text-white hover:bg-opacity-90 shadow-lg shadow-primary-blue/20'}`}
+                                className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 ${plan.isEarlyBird
+                                        ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-[0_10px_30px_rgba(0,22,77,0.3)]'
+                                        : 'bg-transparent border-2 border-white/10 text-white/50 cursor-pointer hover:bg-white/5'
+                                    }`}
                             >
-                                SUBSCRIBE <ArrowRight size={18} />
+                                Apply Now
                             </button>
                         </motion.div>
                     ))}
