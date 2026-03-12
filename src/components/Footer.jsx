@@ -13,10 +13,10 @@ const Footer = () => {
                     {/* Brand Info */}
                     <div className="flex-1 max-w-xl">
                         <div className="flex items-center gap-4 lg:mb-20">
-                            <img 
-                                src={`${import.meta.env.BASE_URL}logo-dark.png`}    
-                                alt="Young Minds Forum" 
-                                className="h-24 lg:h-36 w-auto" 
+                            <img
+                                src={`${import.meta.env.BASE_URL}Logo_main.png`}
+                                alt="Young Minds Forum"
+                                className="h-42 lg:h-80 -mb-40 -ml-24"
                             />
                         </div>
 
@@ -28,29 +28,29 @@ const Footer = () => {
                         <div className="space-y-8">
                             <div className="text-white/40 font-black text-[10px] uppercase tracking-[0.3em]">Inquiries</div>
                             <div className="flex flex-wrap gap-8">
-                                <FooterAction icon={<MessageCircle size={18} />} label="WhatsApp" href="#" target="_blank"/>
-                                <FooterAction icon={<AtSign size={18} />} label="Email Us" href="mailto:info@ymforum.org" target="_blank"/>
-                                <FooterAction icon={<Globe size={18} />} label="Website" href="#" target="_blank"/>
+                                <FooterAction icon={<MessageCircle size={18} />} label="WhatsApp" href="#" target="_blank" />
+                                <FooterAction icon={<AtSign size={18} />} label="Email Us" href="mailto:info@ymforum.org" target="_blank" />
+                                <FooterAction icon={<Globe size={18} />} label="Website" href="#" target="_blank" />
                             </div>
                         </div>
                     </div>
 
                     {/* Newsletter - Glassmorphic */}
-                    <motion.div 
+                    <motion.div
                         whileHover={{ y: -5 }}
                         className="flex-1 w-full max-w-lg glass-card rounded-[48px] p-10 lg:p-14 border-white/5 shadow-2xl relative group"
                     >
                         <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
                             <ArrowRight className="text-teal-accent -rotate-45" size={32} />
                         </div>
-                        
+
                         <h4 className="text-2xl lg:text-3xl font-black text-white mb-12 tracking-tight leading-none italic text-center">
                             Stay within the loop.
                         </h4>
-                        
+
                         <div className="w-full space-y-6">
-                            <input 
-                                type="email" placeholder="EMAIL ADDRESS *" 
+                            <input
+                                type="email" placeholder="EMAIL ADDRESS *"
                                 className="w-full bg-white/5 border border-white/10 py-4 px-8 rounded-full text-lg font-black text-white placeholder-white/10 outline-none focus:border-teal-accent transition-colors text-center"
                             />
                             <button className="w-full py-6 bg-white text-secondary-blue rounded-full text-lg font-black hover:bg-teal-accent transition-colors uppercase tracking-widest ring-4 ring-white/5">
@@ -67,8 +67,8 @@ const Footer = () => {
                         © 2024 Automation With Agentic AI. Islamabad, Pakistan.
                     </p>
                     <div className="flex gap-8">
-                         <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Legal</span>
-                         <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Privacy</span>
+                        <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Legal</span>
+                        <span className="text-[9px] font-black text-white uppercase tracking-[0.2em] cursor-pointer hover:text-teal-accent">Privacy</span>
                     </div>
                 </div>
             </div>
