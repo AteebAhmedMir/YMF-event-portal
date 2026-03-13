@@ -5,7 +5,7 @@
       "destination": "/assets/:path*"
     },
     {
-      "source": "/event-portal/(.*)",
+      "source": "/event-portal/((?!.*\\.).*)",
       "destination": "/index.html"
     }
   ]
