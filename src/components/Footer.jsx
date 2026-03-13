@@ -51,7 +51,7 @@ const Footer = () => {
                 </div>
 
                 {/* Right Inquiry Side */}
-                <div className="text-center lg:text-left lg: mr-24">
+                <div className="text-center lg:text-left lg: mr-24 pl-24">
                   <p className="text-white font-bold mb-1 text-base">
                     For inquiries:
                   </p>

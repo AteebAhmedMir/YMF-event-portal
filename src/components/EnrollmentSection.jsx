@@ -483,7 +483,7 @@ const PricingGlassCard = ({
       </div>
     )}
     <p
-      className={`text-[10px] font-black uppercase tracking-[0.4em] mb-12 ${isFeatured ? "text-[#00164d]/60" : "text-white/40"}`}
+      className={`text-[10px] font-black uppercase tracking-[0.4em] mb-12 ${isFeatured ? "text-[#00164d]/60 mt-8 lg:mt-0" : "text-white/40"}`}
     >
       {type}
     </p>

@@ -11,7 +11,7 @@ const CurriculumSection = () => {
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-accent/5 blur-[100px] rounded-full translate-x-1/2 translate-y-1/2"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
+        <div className="flex flex-col justify-center items-center lg:flex-row gap-16 lg:gap-32 items-start">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
