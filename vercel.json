@@ -1,11 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/event-portal/assets/:path*",
-      "destination": "/assets/:path*"
+      "source": "/event-portal/(.*)",
+      "destination": "/$1"
     },
     {
-      "source": "/event-portal/((?!.*\\.).*)",
+      "source": "/((?!.*\\.).*)",
       "destination": "/index.html"
     }
   ]

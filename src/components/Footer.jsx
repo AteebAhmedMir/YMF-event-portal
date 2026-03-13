@@ -16,7 +16,7 @@ const Footer = () => {
                             <img
                                 src={`${import.meta.env.BASE_URL}Logo_main.png`}
                                 alt="Young Minds Forum"
-                                className="h-42 lg:h-80 -mb-40 -ml-24"
+                                className="h-44 lg:h-80 -mb-40 -ml-24"
                             />
                         </div>
 
