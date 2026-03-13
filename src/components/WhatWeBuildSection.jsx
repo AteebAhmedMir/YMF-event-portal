@@ -63,7 +63,7 @@ const WhatWeBuildSection = () => {
                                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-blue mb-8 shadow-sm group-hover:scale-110 group-hover:bg-primary-blue group-hover:text-white transition-all duration-500">
                                     {build.icon}
                                 </div>
-                                <h3 className="text-xl font-black text-secondary-blue mb-4 tracking-tight leading-tight">
+                                <h3 className="text-xl font-black text-secondary-blue mb-4 tracking-tight leading-tight text-center lg:text-left">
                                     {build.title}
                                 </h3>
                                 <p className="text-base text-text-gray/50 leading-relaxed font-medium mb-8">

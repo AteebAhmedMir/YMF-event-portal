@@ -36,12 +36,12 @@ const HeroSection = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="flex items-center justify-center lg:justify-start mb-12"
+                            className="flex items-center justify-center lg:justify-start mb-1 lg:mb-12"
                         >
                             <img
                                 src={`${import.meta.env.BASE_URL}Logo_main.png`}
                                 alt="Young Minds Forum"
-                                className="h-44 lg:h-80 -mb-32 -ml-24"
+                                className="h-44 -mt-20 -mb-8 lg:mt-0 lg:h-80 lg:-mb-32 lg:-ml-24 object-contain"
                             />
                         </motion.div>
 
@@ -49,7 +49,7 @@ const HeroSection = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="text-4xl lg:text-[72px] font-black text-secondary-blue leading-[1] mb-6 tracking-tight"
+                            className="text-4xl lg:text-[72px] font-black text-secondary-blue leading-[1] mb-6 tracking-tight text-center lg:text-left"
                         >
                             <span className="relative">
                                 Business
@@ -135,6 +135,13 @@ const HeroSection = () => {
                                     <rect width="100%" height="100%" fill="url(#grid)" />
                                 </svg>
                             </div>
+                            {/*
+                            - [x] Fix Mobile Logo Centering & Overlap <!-- id: 16 -->
+                            - [/] Adjust Mobile Logo Size <!-- id: 20 -->
+                                - [ ] Increase hero logo height on mobile (`h-44`) <!-- id: 21 -->
+                                - [ ] Increase footer logo height on mobile (`h-44`) <!-- id: 22 -->
+                            - [/] Verify configuration <!-- id: 3 -->
+                            */}
 
                             {/* Center Piece */}
                             <div className="absolute inset-0 flex items-center justify-center">

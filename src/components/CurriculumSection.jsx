@@ -6,14 +6,14 @@ const CurriculumSection = () => {
         <section id="curriculum" className="py-24 lg:py-40 bg-[#F8FAFC] px-6 lg:px-12 relative overflow-hidden">
             {/* Background Blur */}
             <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-accent/5 blur-[100px] rounded-full translate-x-1/2 translate-y-1/2"></div>
-            
+
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
                     {/* Left Column */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="flex-1 lg:sticky lg:top-32"
+                        className="flex-1 lg:sticky lg:top-32 flex flex-col items-center lg:block text-center lg:text-left"
                     >
                         <h2 className="text-[42px] lg:text-[72px] font-black text-secondary-blue leading-[1] mb-8 pt-12 tracking-tight">
                             Course<br />
@@ -27,22 +27,22 @@ const CurriculumSection = () => {
 
                     {/* Right Column */}
                     <div className="flex-[1.4] flex flex-col pt-2">
-                        <WeekCard 
+                        <WeekCard
                             week="WEEK 01"
                             title="System Architectures"
                             description="Evolution of AI Agents, identifying automation high-ROI targets, and designing your first supervisor model."
                         />
-                        <WeekCard 
+                        <WeekCard
                             week="WEEK 02"
                             title="No-Code Implementation"
                             description="Mastering n8n and Make.com to connect LLMs to professional tools (Slack, Sheets, CRM) for end-to-end execution."
                         />
-                        <WeekCard 
+                        <WeekCard
                             week="WEEK 03"
                             title="Advanced Agency Flows"
                             description="Building multi-agent systems where AI workers collaborate, peer-review, and handle human-in-the-loop escalations."
                         />
-                        <WeekCard 
+                        <WeekCard
                             week="WEEK 04"
                             title="Governance & Selling"
                             description="Deploying at scale with guardrails, ethics, and a dedicated track on pricing yourself as an AI Automation Lead."
@@ -51,16 +51,16 @@ const CurriculumSection = () => {
                 </div>
 
                 {/* Centered CTA Card */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     className="mt-24 lg:mt-32 p-10 lg:p-16 bg-primary-blue rounded-[48px] shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10 group max-w-5xl mx-auto border border-white/5"
                 >
                     <div className="text-center lg:text-left">
-                        <h4 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight">Ready to build?</h4>
+                        <h4 className="text-3xl lg:text-5xl font-black text-white mb-4 tracking-tight text-center lg:text-left">Ready to build?</h4>
                         <p className="text-white/50 text-lg lg:text-xl font-medium">Join Batch 01 and master the future of work.</p>
                     </div>
-                    <button 
+                    <button
                         onClick={() => {
                             const el = document.getElementById('fullName');
                             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -78,7 +78,7 @@ const CurriculumSection = () => {
 };
 
 const WeekCard = ({ week, title, description }) => (
-    <motion.div 
+    <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -86,7 +86,7 @@ const WeekCard = ({ week, title, description }) => (
     >
         <span className="text-[12px] font-black text-teal-accent tracking-[0.3em] uppercase shrink-0 pt-1.5">{week}</span>
         <div>
-            <h3 className="text-2xl lg:text-3xl font-black text-secondary-blue mb-3 tracking-tight group-hover:text-primary-blue transition-colors italic">
+            <h3 className="text-2xl lg:text-3xl font-black text-secondary-blue mb-3 tracking-tight group-hover:text-primary-blue transition-colors italic text-center lg:text-left">
                 {title}
             </h3>
             <p className="text-base lg:text-lg text-text-gray/60 leading-relaxed font-medium">

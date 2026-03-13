@@ -36,8 +36,8 @@ const PricingSection = () => {
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
                             className={`relative w-full md:w-[420px] p-8 sm:p-12 rounded-[40px] border transition-all duration-500 shadow-2xl ${plan.isEarlyBird
-                                    ? 'bg-[#6ee7b7] text-[#00164d] border-[#6ee7b7]'
-                                    : 'bg-[#1e3a8a]/40 text-white/90 border-[#1e3a8a] backdrop-blur-sm'
+                                ? 'bg-[#6ee7b7] text-[#00164d] border-[#6ee7b7]'
+                                : 'bg-[#1e3a8a]/40 text-white/90 border-[#1e3a8a] backdrop-blur-sm opacity-50 pointer-events-none'
                                 }`}
                         >
                             {plan.isEarlyBird && (
@@ -58,6 +58,7 @@ const PricingSection = () => {
                             </div>
 
                             <button
+                                disabled={!plan.isEarlyBird}
                                 onClick={() => {
                                     const element = document.getElementById('fullName');
                                     if (element) {
@@ -66,11 +67,11 @@ const PricingSection = () => {
                                     }
                                 }}
                                 className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 ${plan.isEarlyBird
-                                        ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-[0_10px_30px_rgba(0,22,77,0.3)]'
-                                        : 'bg-transparent border-2 border-white/10 text-white/50 cursor-pointer hover:bg-white/5'
+                                    ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-[0_10px_30px_rgba(0,22,77,0.3)]'
+                                    : 'bg-transparent border-2 border-white/10 text-white/50 cursor-not-allowed'
                                     }`}
                             >
-                                Apply Now
+                                {plan.isEarlyBird ? 'Apply Now' : 'Closed'}
                             </button>
                         </motion.div>
                     ))}

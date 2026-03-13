@@ -12,11 +12,11 @@ const Footer = () => {
                 <div className="flex flex-col lg:flex-row justify-between gap-16 lg:gap-32 items-start mb-24 lg:mb-40">
                     {/* Brand Info */}
                     <div className="flex-1 max-w-xl">
-                        <div className="flex items-center gap-4 lg:mb-20">
+                        <div className="flex items-center justify-center lg:justify-start lg:mb-20">
                             <img
                                 src={`${import.meta.env.BASE_URL}Logo_main.png`}
                                 alt="Young Minds Forum"
-                                className="h-44 lg:h-80 -mb-40 -ml-24"
+                                className="h-44 -mt-20 -mb-2 lg:mt-0 lg:h-80 lg:-mb-40 lg:-ml-24 object-contain"
                             />
                         </div>
 

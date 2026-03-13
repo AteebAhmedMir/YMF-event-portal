@@ -71,7 +71,7 @@ const EnrollmentSection = () => {
 
                 <div className="container mx-auto max-w-7xl">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
-                        <div className="flex-1">
+                        <div className="flex-1 flex flex-col items-center lg:block text-center lg:text-left">
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
@@ -116,8 +116,9 @@ const EnrollmentSection = () => {
                         <PricingGlassCard
                             type="STANDARD"
                             price="25,000"
+                            disabled
                             features={["Full Curriculum Access", "Weekly Support Sessions", "Project Review"]}
-                            className="bg-[#1e3a8a]/30 border-[#1e3a8a] text-white/90 backdrop-blur-md"
+                            className="bg-[#1e3a8a]/30 border-[#1e3a8a] text-white/90 backdrop-blur-md opacity-50 pointer-events-none"
                         />
                         <PricingGlassCard
                             type="EARLY BIRD"
@@ -317,9 +318,9 @@ const FeatureCard = ({ icon, title, detail }) => (
     </motion.div>
 );
 
-const PricingGlassCard = ({ type, price, features, isFeatured, className }) => (
+const PricingGlassCard = ({ type, price, features, isFeatured, disabled, className }) => (
     <motion.div
-        whileHover={{ scale: 1.02 }}
+        whileHover={!disabled ? { scale: 1.02 } : {}}
         className={`flex-1 p-10 lg:p-14 rounded-[40px] border flex flex-col items-center text-center relative overflow-hidden transition-all duration-500 ${className}`}
     >
         {isFeatured && (
@@ -348,16 +349,17 @@ const PricingGlassCard = ({ type, price, features, isFeatured, className }) => (
         </div>
 
         <button
+            disabled={disabled}
             onClick={() => {
                 const el = document.getElementById('fullName');
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }}
             className={`w-full py-5 rounded-2xl text-sm font-black uppercase tracking-widest transition-all ${isFeatured
-                    ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-xl'
-                    : 'bg-white/10 text-white hover:bg-white/20'
+                ? 'bg-[#00164d] text-white hover:bg-[#00164d]/90 shadow-xl'
+                : disabled ? 'bg-white/5 text-white/30 cursor-not-allowed' : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
         >
-            APPLY NOW
+            {disabled ? 'CLOSED' : 'APPLY NOW'}
         </button>
     </motion.div>
 );
