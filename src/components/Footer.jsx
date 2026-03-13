@@ -41,7 +41,7 @@ const Footer = () => {
                     Contact us on WhatsApp
                   </p>
                   <a
-                    href="#"
+                    href="https://wa.me/923495507026"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-block bg-[#F4F4F5] text-[#001A72] font-bold py-3 px-8 rounded-[12px] text-[15px] transition-transform hover:scale-105 shadow-sm"
@@ -64,7 +64,9 @@ const Footer = () => {
 
                   <div className="flex gap-4 justify-center lg:justify-start mt-8 mb-2">
                     <a
-                      href="#"
+                      href="https://www.facebook.com/YoungMindsForum"
+                      target="_blank"
+                      rel="noreferrer"
                       className="bg-white rounded-full p-1.5 flex items-center justify-center hover:scale-110 transition-transform"
                     >
                       <svg
@@ -78,7 +80,9 @@ const Footer = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      href="https://twitter.com/YoungMindsForum"
+                      target="_blank"
+                      rel="noreferrer"
                       className="bg-white rounded-full p-1.5 flex items-center justify-center hover:scale-110 transition-transform"
                     >
                       <svg
@@ -92,7 +96,9 @@ const Footer = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      href="https://www.instagram.com/YoungMindsForum"
+                      target="_blank"
+                      rel="noreferrer"
                       className="bg-white rounded-full p-1.5 flex items-center justify-center hover:scale-110 transition-transform"
                     >
                       <svg

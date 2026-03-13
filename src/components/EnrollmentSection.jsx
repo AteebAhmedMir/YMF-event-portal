@@ -122,12 +122,12 @@ const EnrollmentSection = () => {
                 <InstructorBlock
                   name="Hashim M. Nadeem"
                   role="LEAD ML ENGINEER @ Markaz Technologies (YC W22)"
-                  initials="H"
+                  image="./public/HashimNadeem.jpeg"
                 />
                 <InstructorBlock
                   name="Husnain Sattar"
                   role="CTO @ EYNVISION"
-                  initials="S"
+                  image="./public/HusnainSattar.jpeg"
                 />
               </div>
             </div>
@@ -428,14 +428,18 @@ const EnrollmentSection = () => {
   );
 };
 
-const InstructorBlock = ({ name, role, initials }) => (
+const InstructorBlock = ({ name, role, image }) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     className="flex items-center gap-6 group"
   >
-    <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-full bg-secondary-blue flex items-center justify-center text-teal-accent text-xl font-black ring-4 ring-secondary-blue/5 group-hover:rotate-12 transition-transform shadow-lg">
-      {initials}
+    <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] rounded-full ring-4 ring-secondary-blue/10 shadow-lg overflow-hidden shrink-0 group-hover:scale-105 transition-transform">
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-full object-cover object-top"
+      />
     </div>
     <div>
       <h4 className="text-xl lg:text-2xl font-black text-secondary-blue tracking-tight mb-1">
